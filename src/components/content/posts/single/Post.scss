@@ -1,0 +1,56 @@
+.post {
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px #c9cccd;
+    margin-top: 20px;
+    max-height: 200px;
+
+    .image-holder img {
+        margin-top: 20px;
+        border-radius: 50%;
+    }
+
+    .views {
+        font-size: 12px;
+        text-align: center;
+        border-bottom: solid 1px #f1f1f1;
+    }
+
+    .reply-count {
+        border-bottom: solid 1px #f1f1f1;
+        padding: 18px 0 25px 0;
+        text-align: center;
+
+        .commentbg {
+            background-color: #bdc3c7;
+            border-radius: 2px;
+            display: inline-block;
+            padding: 12px 17px;
+            color: #ffffff;
+            font-size: 14px;
+            font-family: 'Open Sans Bold', sans-serif;
+            position: relative;
+
+            .mark {
+                width: 11px;
+                height: 11px;
+                background-color: #bdc3c7;
+                position: absolute;
+                bottom: 0;
+                left: 43%;
+                margin-bottom: -5px;
+                transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+            }
+        }
+    }
+
+    .created-on {
+        color: #9da6aa;
+        font-size: 12px;
+        font-family: 'Open Sans Regular', sans-serif;
+        text-align: center;
+        line-height: 29px;
+    }
+}
