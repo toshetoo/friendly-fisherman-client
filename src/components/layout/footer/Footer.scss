@@ -1,0 +1,19 @@
+.footer {
+    display: flex;
+    background-color: white;
+    height: 69px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.socialicons li{
+    // display: inline-block;
+    list-style: none;
+    font-size: 18px;
+    color: #bdc3c7;
+    margin-left: 15px;
+}
+
+.width-100 {
+    width: 100%;
+}

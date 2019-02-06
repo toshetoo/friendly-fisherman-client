@@ -9,7 +9,7 @@ export class CategoriesList extends React.Component {
             <div className="categories-holder">
                 <h3>Categories</h3>
                 <div className="divider"></div>
-                <ul class="cats">
+                <ul className="cats">
                     <CategoryItem />
                     <CategoryItem />
                     <CategoryItem />

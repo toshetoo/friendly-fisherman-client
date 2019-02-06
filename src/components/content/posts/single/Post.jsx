@@ -29,9 +29,9 @@ export class Post extends React.Component {
                             </div>
                             <div className="col-2">
                                 <div className="reply-count">
-                                    <div class="commentbg">
+                                    <div className="commentbg">
                                         560
-                                                        <div class="mark"></div>
+                                        <div className="mark"></div>
                                     </div>
                                 </div>
                                 <div className="views text-muted">
