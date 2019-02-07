@@ -12,12 +12,12 @@ export class Footer extends React.Component {
                 <div className="container d-flex align-items-center">
                     <div className="row width-100">
                         <div className="col-1">
-                            <img src="logo.png" alt="logo" />
+                            <img src="./images/logo.jpg" alt="logo" />
                         </div>
-                        <div className="col-5 text-center">
+                        <div className="col-5 text-center d-flex align-items-center justify-content-end">
                             <span>Copyrights 2019, Friendly Fisherman</span>
                         </div>
-                        <div className="col-6">
+                        <div className="col-6 d-flex align-items-center justify-content-end">
                         <ul className="socialicons d-flex text-muted">
                                 <li className="cursor-pointer"><FontAwesomeIcon icon={faFacebookSquare}/></li>
                                 <li className="cursor-pointer"><FontAwesomeIcon icon={faTwitter}/></li>
