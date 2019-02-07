@@ -19,12 +19,12 @@ export class Footer extends React.Component {
                         </div>
                         <div className="col-6">
                         <ul className="socialicons d-flex text-muted">
-                                <li><FontAwesomeIcon icon={faFacebookSquare}/></li>
-                                <li><FontAwesomeIcon icon={faTwitter}/></li>
-                                <li><FontAwesomeIcon icon={faGooglePlus}/></li>
-                                <li><FontAwesomeIcon icon={faDribbble}/></li>
-                                <li><FontAwesomeIcon icon={faCloud}/></li>
-                                <li><FontAwesomeIcon icon={faRss}/></li>
+                                <li className="cursor-pointer"><FontAwesomeIcon icon={faFacebookSquare}/></li>
+                                <li className="cursor-pointer"><FontAwesomeIcon icon={faTwitter}/></li>
+                                <li className="cursor-pointer"><FontAwesomeIcon icon={faGooglePlus}/></li>
+                                <li className="cursor-pointer"><FontAwesomeIcon icon={faDribbble}/></li>
+                                <li className="cursor-pointer"><FontAwesomeIcon icon={faCloud}/></li>
+                                <li className="cursor-pointer"><FontAwesomeIcon icon={faRss}/></li>
                             </ul>
                         </div>
                     </div>

@@ -1,0 +1,52 @@
+.poll-holder {
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px #c9cccd;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .divider {
+        height: 1px;
+        line-height: 1px;
+        border-bottom: solid 1px #f1f1f1;
+    }
+
+    h3 {
+        color: #363838;
+        font-size: 14px;
+        font-family: 'Open Sans Bold', sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+}
+
+.responses {
+    font-size: 14px;
+    color: #363838;
+    font-family: 'Open Sans Light', sans-serif;
+    padding: 20px;
+}
+
+.answer {
+    margin-bottom: 1rem;
+    display: flex;
+
+    .progress {
+        width: 80%;
+        height: 2rem;
+        display: inline-block;
+        margin-right: 10px;
+
+        .progress-bar {
+            height: 100%;
+            padding-left: 10px;
+        }
+    }
+    
+    .btn {
+        height: 2rem;
+        display: flex;
+    }
+}
+
