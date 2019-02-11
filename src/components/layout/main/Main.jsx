@@ -2,6 +2,7 @@ import React from 'react';
 import { PostsHolder } from '../../content/posts/list/PostsHolder';
 import { CategoriesList } from './../../content/categories/list/CategoriesList';
 import { Poll } from './../../content/polls/Poll';
+import { ActiveThreads } from '../../content/posts/active-threads/ActiveThreads';
 
 export class Main extends React.Component {
 
@@ -15,6 +16,7 @@ export class Main extends React.Component {
                     <div className="col-4">
                         <CategoriesList />
                         <Poll />
+                        <ActiveThreads />
                     </div>
                 </div>
             </div>
