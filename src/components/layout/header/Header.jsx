@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { InputGroup, InputGroupAddon, Button, Input, UncontrolledDropdown, DropdownToggle, DropdownItem, DropdownMenu } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -15,7 +16,7 @@ export class Header extends React.Component {
           <div className="row">
             <div className="col-2">
               <div className="logo-holder">
-                <img src="./images/logo.jpg" alt="logo" />
+                <Link to="/home"><img src="./images/logo.jpg" alt="logo" /></Link>
               </div>
             </div>
             <div className="col-8 d-flex justify-content-end align-items-center">
@@ -33,13 +34,13 @@ export class Header extends React.Component {
                 <span className="icon-holder mr-2 text-muted">
                     <FontAwesomeIcon icon={faEnvelope} />
                 </span>
-                <span className="profile-holder mr-4">
+                <span className="nav-profile-holder cursor-pointer mr-4">
                     <UncontrolledDropdown>
                         <DropdownToggle tag="a" className="avatar-holder" caret>
                             <img src="./images/avatar.jpg" alt="profile-img" />
                         </DropdownToggle>
                         <DropdownMenu>
-                            <DropdownItem tag="a" href="/blah">Link</DropdownItem>
+                            <Link to="/profile" className="ml-2 text-center">Profile</Link>
                         </DropdownMenu>
                     </UncontrolledDropdown>
                 </span>                
