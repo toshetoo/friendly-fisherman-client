@@ -2,6 +2,7 @@ import React from 'react';
 import './Post.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faClock } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 export class Post extends React.Component {
 
@@ -21,7 +22,7 @@ export class Post extends React.Component {
                             </div>
                             <div className="col-8">
                                 <h5 className="mt-3">
-                                    <a>10 Kids Unaware of Their Halloween Costume</a>
+                                    <Link to="/thread/10">10 Kids Unaware of Their Halloween Costume</Link>
                                 </h5>
                                 <p className="description text-muted">
                                     It's one thing to subject yourself to a Halloween costume mishap because, hey, that's your prerogative.
