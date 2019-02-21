@@ -1,7 +1,7 @@
 
 import React from 'react';
 import './UserProfile.scss';
-import { Media, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Media } from 'reactstrap';
 export class UserProfile extends React.Component {
 
     render() {

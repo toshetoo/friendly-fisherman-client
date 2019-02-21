@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { InputGroup, InputGroupAddon, Button, Input, UncontrolledDropdown, DropdownToggle, DropdownItem, DropdownMenu } from "reactstrap";
+import { InputGroup, InputGroupAddon, Button, Input, UncontrolledDropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./Header.scss";
