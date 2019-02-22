@@ -4,9 +4,9 @@ import { API_URL } from './Constants';
 export default class AuthService {
     static login(user) {
         return new Promise((resolve, reject) => {
-            axios.post(API_URL + '/auth/login', user).then((response) => {
-                sessionStorage.setItem('token', response.data.token);
-                resolve(response.data);
+            axios.post(API_URL + '/Users/Authenticate', user).then((response) => {
+                sessionStorage.setItem('token', response.accessToken);
+                resolve(response);
             });
         });
     }
@@ -20,7 +20,7 @@ export default class AuthService {
 
     static register(user) {
         return new Promise((resolve, reject) => {
-            axios.post(API_URL + '/auth/register', user).then((data) => {
+            axios.post(API_URL + '/Users/Register', user).then((data) => {
                 resolve(data);
             });
         });

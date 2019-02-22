@@ -1,8 +1,32 @@
 import React from 'react';
 import './Login.scss';
 import { Button } from 'reactstrap';
+import AuthService from '../../../core/services/auth.service';
 
 export class Login extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            username: '',
+            password: ''
+        };
+    }
+
+    onChange(event) {
+        event.persist();
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
+
+    onSubmit(event) {
+        event.preventDefault();
+        AuthService.login(this.state).then(() => {
+            this.props.history.push('/home');
+        });
+    }
 
     render() {
         return (
@@ -13,20 +37,20 @@ export class Login extends React.Component {
                             <img src="./images/logo.jpg" alt="logo" />
                         </a>
                     </div>
-                    <form>
+                    <form onSubmit={this.onSubmit.bind(this)}>
                         <div className="row mt-3">
                             <div className="col-12">
-                                <input type="text" name="username" id="username" placeholder="Username" />
+                                <input type="text" name="username" id="username" placeholder="Username" onChange={this.onChange.bind(this)}/>
                             </div>                        
                         </div>
                         <div className="row">
                             <div className="col-12 mt-3">
-                                <input type="password" name="password" id="password" placeholder="Password" />
+                                <input type="password" name="password" id="password" placeholder="Password" onChange={this.onChange.bind(this)}/>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-12 mt-3">
-                                <Button color="primary">Login</Button>
+                                <Button type="submit" color="primary">Login</Button>
                             </div>
                         </div>
                     </form>
