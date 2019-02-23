@@ -1,11 +1,13 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom'
+import UsersService from './../services/users.service';
 
 export default class ProtectedRoute extends React.Component {
 
     render() {
-        // TODO change this when we have auth
-        if(true) {
+        const isLoggedIn = UsersService.getLoggedUser() !== null;
+
+        if(isLoggedIn) {
             return <this.props.component {...this.props} />
         } else {
             return <Redirect to={{

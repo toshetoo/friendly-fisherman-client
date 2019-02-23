@@ -6,6 +6,7 @@ import { ActiveThreads } from '../../content/posts/active-threads/ActiveThreads'
 import { UserProfile } from '../../user/profile/UserProfile';
 import { Switch, Route, Redirect } from "react-router-dom";
 import { ThreadDetailsHolder } from './../../content/posts/thread-details/holder/ThreadDetailsHolder';
+import ProtectedRoute from './../../../core/routes/ProtectedRoute';
 
 export class Main extends React.Component {
 
@@ -15,11 +16,10 @@ export class Main extends React.Component {
                 <div className="row">
                     <div className="col-12 col-sm-8">
                         <Switch> 
-                            <Route exact path="/home" component={PostsHolder} />
-                            <Route exact path="/profile" component={UserProfile} />
+                            <Route exact path="/home" component={PostsHolder} />                            
                             <Route exact path="/thread/:id" component={ThreadDetailsHolder} />
 
-
+                            <ProtectedRoute exact path="/profile" component={UserProfile} />
                             <Redirect from="/" to="/home" />
                         </Switch>
                     </div>

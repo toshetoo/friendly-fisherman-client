@@ -1,16 +1,18 @@
 import React from 'react';
-import './Login.scss';
+import './Register.scss';
 import { Button } from 'reactstrap';
-import AuthService from '../../../core/services/auth.service';
+import AuthService from './../../../core/services/auth.service';
 
-export class Login extends React.Component {
-
+export class Register extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            firstName: '',
+            lastName: '',
             username: '',
-            password: ''
+            password: '',
+            email: ''
         };
     }
 
@@ -23,21 +25,26 @@ export class Login extends React.Component {
 
     onSubmit(event) {
         event.preventDefault();
-        AuthService.login(this.state).then(() => {
+        AuthService.register(this.state).then(() => {
             this.props.history.push('/home');
         });
     }
 
     render() {
         return (
-            <div className="container login-component-container">
-                <div className="login-holder">
-                    <div className="logo-holder-login d-flex justify-content-center">
+            <div className="container register-component-container">
+                <div className="register-holder">
+                    <div class="logo-holder-register d-flex justify-content-center">
                         <a href="/home">
                             <img src="./images/logo.jpg" alt="logo" />
                         </a>
                     </div>
                     <form onSubmit={this.onSubmit.bind(this)}>
+                        <div className="row">
+                            <div className="col-12 mt-3">
+                                <input type="email" name="email" id="email" placeholder="Email" onChange={this.onChange.bind(this)}/>
+                            </div>
+                        </div>
                         <div className="row mt-3">
                             <div className="col-12">
                                 <input type="text" name="username" id="username" placeholder="Username" onChange={this.onChange.bind(this)}/>
@@ -50,12 +57,22 @@ export class Login extends React.Component {
                         </div>
                         <div className="row">
                             <div className="col-12 mt-3">
-                                <Button type="submit" color="primary">Login</Button>
+                                <input type="text" name="firstName" id="firstName" placeholder="First Name" onChange={this.onChange.bind(this)}/>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-12 mt-3">
+                                <input type="text" name="lastName" id="lastName" placeholder="Last Name" onChange={this.onChange.bind(this)}/>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-12 mt-3">
+                                <Button type="submit" color="primary">Register</Button>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>            
+            </div>   
         );
     }
 }

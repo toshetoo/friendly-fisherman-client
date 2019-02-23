@@ -7,6 +7,8 @@ import { Main } from './components/layout/main/Main';
 import { Switch } from 'react-router-dom';
 import { Route } from 'react-router-dom';
 import { Login } from './components/auth/login/Login';
+import { Redirect } from 'react-router-dom';
+import { Register } from './components/auth/register/Register';
 
 class App extends Component {
   render() {
@@ -15,7 +17,10 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
           <Route exact path="/home" component={Main} />
+
+          <Redirect from="/" to="/home" />
         </Switch>        
         <Footer />
       </div>

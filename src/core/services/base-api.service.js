@@ -1,7 +1,17 @@
 import axios from 'axios';
-import history from "../core/history/History";
+import history from "../history/History";
+import jwtDecode from 'jwt-decode';
 
 export default class BaseService {
+
+    static getUser() {
+        let token = localStorage.getItem('token');
+
+        if (token)
+            return jwtDecode(token);
+            
+        return null;
+    }
 
     static get(url, getParams) {
         let token = sessionStorage.getItem('token');
