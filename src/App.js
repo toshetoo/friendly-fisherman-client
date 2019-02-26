@@ -9,21 +9,23 @@ import { Route } from 'react-router-dom';
 import { Login } from './components/auth/login/Login';
 import { Redirect } from 'react-router-dom';
 import { Register } from './components/auth/register/Register';
+import { Router } from 'react-router-dom';
+import history from './core/history/History';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">        
-        <Header />
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/home" component={Main} />
-
-          <Redirect from="/" to="/home" />
-        </Switch>        
-        <Footer />
-      </div>
+      <Router history={history}>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/" component={Main} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }

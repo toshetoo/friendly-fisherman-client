@@ -15,8 +15,8 @@ export class Main extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-sm-8">
-                        <Switch> 
-                            <Route exact path="/home" component={PostsHolder} />                            
+                        <Switch>
+                            <Route exact path="/home" component={PostsHolder} />
                             <Route exact path="/thread/:id" component={ThreadDetailsHolder} />
 
                             <ProtectedRoute exact path="/profile" component={UserProfile} />
