@@ -13,7 +13,7 @@ export class ThreadDetails extends React.Component {
                         <div className="row pb-2">
                             <div className="col-2">
                                 <div className="image-holder d-flex justify-content-center">
-                                    <img src="./images/avatar.jpg" alt="avatar" />
+                                    <img src="../images/avatar.jpg" alt="profile-img" />
                                 </div>
                                 <div className="badges">
 

@@ -5,9 +5,7 @@ import UsersService from './../services/users.service';
 export default class ProtectedRoute extends React.Component {
 
     render() {
-        const isLoggedIn = UsersService.getLoggedUser() !== null;
-
-        if(isLoggedIn) {
+        if(UsersService.getLoggedUser()) {
             return <this.props.component {...this.props} />
         } else {
             return <Redirect to={{

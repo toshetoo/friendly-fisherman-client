@@ -1,16 +1,10 @@
 import axios from 'axios';
 import history from "../history/History";
-import jwtDecode from 'jwt-decode';
 
 export default class BaseService {
 
     static getUser() {
-        let token = localStorage.getItem('token');
-
-        if (token)
-            return jwtDecode(token);
-            
-        return null;
+        return !!localStorage.getItem('token');
     }
 
     static get(url, getParams) {
