@@ -4,8 +4,14 @@ import { InputGroup, InputGroupAddon, Button, Input, UncontrolledDropdown, Dropd
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./Header.scss";
+import UsersService from './../../../core/services/users.service';
 
 export class Header extends React.Component {
+
+  isLoggedIn() {
+    return UsersService.getLoggedUser();
+  }
+
   render() {
     return (
       <div className="header-content">
@@ -30,21 +36,23 @@ export class Header extends React.Component {
               </InputGroup>
               <button className="create-topic-btn">Create topic</button>
             </div>
-            <div className="col-2 pl-0 ml-0 d-flex justify-content-end align-items-center">
+            {this.isLoggedIn() ? 
+              <div className="col-2 pl-0 ml-0 d-flex justify-content-end align-items-center">
                 <span className="icon-holder mr-2 text-muted">
                     <FontAwesomeIcon icon={faEnvelope} />
                 </span>
-                <span className="nav-profile-holder cursor-pointer mr-4">
-                    <UncontrolledDropdown>
-                        <DropdownToggle tag="a" className="avatar-holder" caret>
-                            <img src="./images/avatar.jpg" alt="profile-img" />
-                        </DropdownToggle>
-                        <DropdownMenu>
-                            <Link to="/profile" className="ml-2 text-center">Profile</Link>
-                        </DropdownMenu>
-                    </UncontrolledDropdown>
-                </span>                
+              <span className="nav-profile-holder cursor-pointer mr-4">
+                  <UncontrolledDropdown>
+                      <DropdownToggle tag="a" className="avatar-holder" caret>
+                          <img src="./images/avatar.jpg" alt="profile-img" />
+                      </DropdownToggle>
+                      <DropdownMenu>
+                          <Link to="/profile" className="ml-2 text-center">Profile</Link>
+                      </DropdownMenu>
+                  </UncontrolledDropdown>
+              </span>                
             </div>
+            : ''}            
           </div>
         </div>
       </div>
