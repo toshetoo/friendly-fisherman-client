@@ -2,6 +2,7 @@ import React from 'react';
 import './Login.scss';
 import { Button } from 'reactstrap';
 import AuthService from '../../../core/services/auth.service';
+import { Link } from 'react-router-dom';
 
 export class Login extends React.Component {
 
@@ -40,18 +41,23 @@ export class Login extends React.Component {
                     <form onSubmit={this.onSubmit.bind(this)}>
                         <div className="row mt-3">
                             <div className="col-12">
-                                <input type="text" name="username" id="username" placeholder="Username" onChange={this.onChange.bind(this)}/>
+                                <input type="text" name="username" id="username" placeholder="Username" onChange={this.onChange.bind(this)} required/>
                             </div>                        
                         </div>
                         <div className="row">
                             <div className="col-12 mt-3">
-                                <input type="password" name="password" id="password" placeholder="Password" onChange={this.onChange.bind(this)}/>
+                                <input type="password" name="password" id="password" placeholder="Password" onChange={this.onChange.bind(this)} required/>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-12 mt-3">
                                 <Button type="submit" color="primary">Login</Button>
-                            </div>
+                            </div>                            
+                        </div>
+                        <div className="row">
+                            <div className="col-12 mt-3">
+                                <Link to="/register">Don't have an account?</Link>
+                            </div>                            
                         </div>
                     </form>
                 </div>
