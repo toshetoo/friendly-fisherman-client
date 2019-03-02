@@ -52,7 +52,7 @@ export class Header extends React.Component {
                   </UncontrolledDropdown>
               </span>                
             </div>
-            : ''}            
+            : <div className="col-2 pl-0 ml-0 d-flex justify-content-end align-items-center"><Link to="/login" className="login-btn">Login</Link></div>}            
           </div>
         </div>
       </div>
