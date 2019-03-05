@@ -27,7 +27,7 @@ export class Register extends React.Component {
     onSubmit(event) {
         event.preventDefault();
         AuthService.register(this.state).then((response) => {
-            if(response.data.errors) {
+            if(response.data.error) {
                 this.setState({
                     errors: response.data.error
                 });

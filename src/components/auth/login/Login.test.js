@@ -22,8 +22,8 @@ beforeAll(async () => {
 
     page.emulate({
         viewport: {
-            width: 1700,
-            height: 1200
+            width: 1900,
+            height: 1300
         },
         userAgent: ''
     });
@@ -115,9 +115,7 @@ describe('Login', () => {
         await page.type('input[name=username]', accountDetails.username);
         await page.click('input[name=password]');
         await page.type('input[name=password]', accountDetails.password);
-        await page.waitFor(3000);
         await page.click('button[type=submit]');
-        await page.waitFor(3000);
         await page.waitForSelector('.nav-profile-holder');
     }, 1600000);
 });

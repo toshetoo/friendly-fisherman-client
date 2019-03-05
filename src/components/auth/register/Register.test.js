@@ -14,6 +14,7 @@ beforeAll(async () => {
         {
             headless: false, // headless mode set to false so browser opens up with visual feedback
             slowMo: 10, // how slow actions should be
+            args: ['--start-fullscreen']
         }
     )
     // creates a new page in the opened browser	
@@ -21,8 +22,8 @@ beforeAll(async () => {
 
     page.emulate({
         viewport: {
-            width: 1200,
-            height: 700
+            width: 1900,
+            height: 1300
         },
         userAgent: ''
     });
@@ -44,8 +45,9 @@ describe('Register', () => {
     test('users cannot register with only email', async () => {
         await page.waitForSelector('.register-component-container');
 
-        await page.click('input[name=username]')
-        await page.type('input[name=username]', faker.internet.email())
+        await page.click('input[name=email]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
+        await page.type('input[name=email]', faker.internet.email())
 
         await page.click('button[type=submit]');
     }, 1600000);
@@ -53,7 +55,8 @@ describe('Register', () => {
     test('users cannot register with only username', async () => {
         await page.waitForSelector('.register-component-container');
 
-        await page.click('input[name=username]')
+        await page.click('input[name=username]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
         await page.type('input[name=username]', faker.random.word())
 
         await page.click('button[type=submit]');
@@ -62,7 +65,8 @@ describe('Register', () => {
     test('users cannot register with only password', async () => {
         await page.waitForSelector('.register-component-container');
 
-        await page.click('input[name=password]')
+        await page.click('input[name=password]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
         await page.type('input[name=password]', faker.random.word())
 
         await page.click('button[type=submit]');
@@ -71,7 +75,8 @@ describe('Register', () => {
     test('users cannot register with only firstName', async () => {
         await page.waitForSelector('.register-component-container');
 
-        await page.click('input[name=firstName]')
+        await page.click('input[name=firstName]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
         await page.type('input[name=firstName]', faker.random.word())
 
         await page.click('button[type=submit]');
@@ -80,57 +85,100 @@ describe('Register', () => {
     test('users cannot register with only lastName', async () => {
         await page.waitForSelector('.register-component-container');
 
-        await page.click('input[name=lastName]')
+        await page.click('input[name=lastName]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
         await page.type('input[name=lastName]', faker.random.word())
 
         await page.click('button[type=submit]');
     }, 1600000);
 
     test('users should see error message on taken email', async () => {
+        const accountDetails = {
+            username: faker.internet.userName(),
+            email: faker.internet.email(),
+            password: faker.internet.password() + faker.internet.userName() + faker.internet.ip(),
+            firstName: faker.name.firstName(),
+            lastName: faker.name.lastName()
+        }
         await page.waitForSelector('.register-component-container');
 
-        await page.click('input[name=username]')
-        await page.type('input[name=username]', faker.random.word())
+        await page.click('input[name=username]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
+        await page.type('input[name=username]', accountDetails.username)
 
-        await page.click('input[name=email]')
-        await page.type('input[name=email]', faker.internet.email())
+        await page.click('input[name=email]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
+        await page.type('input[name=email]', accountDetails.email)
 
-        await page.click('input[name=password]')
-        await page.type('input[name=password]', faker.random.word())
+        await page.click('input[name=password]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
+        await page.type('input[name=password]', accountDetails.password)
 
-        await page.click('input[name=firstName]')
-        await page.type('input[name=firstName]', faker.random.word())
+        await page.click('input[name=firstName]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
+        await page.type('input[name=firstName]', accountDetails.firstName)
 
-        await page.click('input[name=lastName]')
-        await page.type('input[name=lastName]', faker.random.word())
+        await page.click('input[name=lastName]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
+        await page.type('input[name=lastName]', accountDetails.lastName)
 
-        await page.click('button[type=submit]')
+        await page.click('button[type=submit]');
 
-        //TODO add check for msg
+        await page.waitForSelector('.posts-holder');
+
+        await page.goto(routes.public.register);
+
+        await page.waitForSelector('.register-component-container');
+
+        await page.click('input[name=username]');
+        await page.type('input[name=username]', accountDetails.username)
+
+        await page.click('input[name=email]');
+        await page.type('input[name=email]', accountDetails.email)
+
+        await page.click('input[name=password]');
+        await page.type('input[name=password]', accountDetails.password)
+
+        await page.click('input[name=firstName]');
+        await page.type('input[name=firstName]', accountDetails.firstName)
+
+        await page.click('input[name=lastName]');
+        await page.type('input[name=lastName]', accountDetails.lastName)
+
+        await page.click('button[type=submit]');
+
+
+        await page.waitForSelector('.errors');
     }, 1600000);
 
-    test('users should register successfully', async () => {
-        // TODO use real values        
+    test('users should register successfully', async () => {     
+        
+
         await page.waitForSelector('.register-component-container');
 
-        await page.click('input[name=username]')
+        await page.click('input[name=username]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
         await page.type('input[name=username]', faker.random.word())
 
-        await page.click('input[name=email]')
+        await page.click('input[name=email]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
         await page.type('input[name=email]', faker.internet.email())
 
-        await page.click('input[name=password]')
-        await page.type('input[name=password]', faker.random.word())
+        await page.click('input[name=password]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
+        await page.type('input[name=password]', faker.internet.password() + faker.internet.userName() + faker.internet.ip())
 
-        await page.click('input[name=firstName]')
+        await page.click('input[name=firstName]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
         await page.type('input[name=firstName]', faker.random.word())
 
-        await page.click('input[name=lastName]')
+        await page.click('input[name=lastName]', {clickCount: 3})
+        await page.keyboard.press('Backspace')
         await page.type('input[name=lastName]', faker.random.word())
 
         await page.click('button[type=submit]')
 
-        //TODO add check for redirect
+        await page.waitForSelector('.posts-holder');
     }, 1600000);
 });
 
