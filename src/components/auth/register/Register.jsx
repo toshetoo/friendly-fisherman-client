@@ -12,7 +12,8 @@ export class Register extends React.Component {
             lastName: '',
             username: '',
             password: '',
-            email: ''
+            email: '',
+            errors: ''
         };
     }
 
@@ -25,8 +26,14 @@ export class Register extends React.Component {
 
     onSubmit(event) {
         event.preventDefault();
-        AuthService.register(this.state).then(() => {
-            this.props.history.push('/home');
+        AuthService.register(this.state).then((response) => {
+            if(response.data.errors) {
+                this.setState({
+                    errors: response.data.error
+                });
+            } else {
+                this.props.history.push('/home');
+            }            
         });
     }
 
@@ -38,6 +45,9 @@ export class Register extends React.Component {
                         <a href="/home">
                             <img src="./images/logo.jpg" alt="logo" />
                         </a>
+                    </div>
+                    <div className="errors text-center">
+                        <span className="text-danger">{this.state.errors}</span>
                     </div>
                     <form onSubmit={this.onSubmit.bind(this)}>
                         <div className="row">

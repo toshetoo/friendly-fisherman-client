@@ -11,7 +11,8 @@ export class Login extends React.Component {
 
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            errors: ''
         };
     }
 
@@ -24,8 +25,15 @@ export class Login extends React.Component {
 
     onSubmit(event) {
         event.preventDefault();
-        AuthService.login(this.state).then(() => {
-            this.props.history.push('/home');
+        AuthService.login(this.state).then((response) => {
+            if (response.data.error) {
+                this.setState({
+                    errors: response.data.error
+                });
+            } else {
+                this.props.setLoggedInFn(true);
+                this.props.history.push('/home');
+            }
         });
     }
 
@@ -37,6 +45,9 @@ export class Login extends React.Component {
                         <a href="/home">
                             <img src="./images/logo.jpg" alt="logo" />
                         </a>
+                    </div>
+                    <div className="errors text-center">
+                        <span className="text-danger">{this.state.errors}</span>
                     </div>
                     <form onSubmit={this.onSubmit.bind(this)}>
                         <div className="row mt-3">

@@ -8,11 +8,12 @@ import UsersService from './../../../core/services/users.service';
 
 export class Header extends React.Component {
 
-  isLoggedIn() {
-    return UsersService.getLoggedUser();
+  constructor(props) {
+    super(props);
   }
 
   render() {
+    const isLoggedIn = this.props.isLoggedIn;
     return (
       <div className="header-content">
         <div className="image-block">
@@ -36,7 +37,7 @@ export class Header extends React.Component {
               </InputGroup>
               <button className="create-topic-btn">Create topic</button>
             </div>
-            {this.isLoggedIn() ? 
+            {isLoggedIn ? 
               <div className="col-2 pl-0 ml-0 d-flex justify-content-end align-items-center">
                 <span className="icon-holder mr-2 text-muted">
                     <FontAwesomeIcon icon={faEnvelope} />
