@@ -40,11 +40,9 @@ export class UserProfile extends React.Component {
                     <div className="divider"></div>
                     <div className="row mt-4">
                         <div className="col-2">
-                            <Media>
-                                <Media left href="#">
-                                    <Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
-                                </Media>
-                            </Media>
+                            <div className="image-holder">
+                                <img src="./images/placeholder-face-big.png" alt="profile-img" />
+                            </div>
                         </div> 
                         <div className="col-10">
                             <form>
