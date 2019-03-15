@@ -11,6 +11,7 @@ import { Register } from './components/auth/register/Register';
 import { Router } from 'react-router-dom';
 import history from './core/history/History';
 import UsersService from './core/services/users.service';
+import { ForgottenPassword } from './components/auth/forgotten-password/ForgottenPassword';
 
 class App extends Component {
 
@@ -38,6 +39,7 @@ class App extends Component {
               return <Login setLoggedInFn={this.setLoggedIn.bind(this)} history={history} ></Login>
             }} />
             <Route path="/register" component={Register} />
+            <Route path="/forgotten-password" component={ForgottenPassword} />
             <Route path="/" component={Main} />
           </Switch>
           <Footer />
