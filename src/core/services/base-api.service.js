@@ -8,7 +8,7 @@ export default class BaseService {
     }
 
     static get(url, getParams) {
-        let token = sessionStorage.getItem('token');
+        let token = localStorage.getItem('token');
 
         let config = {
             headers: {
@@ -24,7 +24,7 @@ export default class BaseService {
     }
 
     static post(url, data) {
-        let token = sessionStorage.getItem('token');
+        let token = localStorage.getItem('token');
 
         let config = {
             headers: {
@@ -36,7 +36,7 @@ export default class BaseService {
     }
 
     static put(url, data) {
-        let token = sessionStorage.getItem('token');
+        let token = localStorage.getItem('token');
 
         let config = {
             headers: {
@@ -48,7 +48,7 @@ export default class BaseService {
     }
 
     static delete(url, getParams) {
-        let token = sessionStorage.getItem('token');
+        let token = localStorage.getItem('token');
 
         let config = {
             headers: {
@@ -63,7 +63,7 @@ export default class BaseService {
         const data = new FormData();
         data.append('file', file);
 
-        let token = sessionStorage.getItem('token');
+        let token = localStorage.getItem('token');
 
         let config = {
             headers: {

@@ -5,7 +5,7 @@ export default class AuthService {
     static login(user) {
         return new Promise((resolve, reject) => {
             axios.post(API_URL + '/Users/Authenticate', user).then((response) => {
-                sessionStorage.setItem('token', response.data.accessToken);
+                localStorage.setItem('token', response.data.accessToken);
                 resolve(response);
             });
         });

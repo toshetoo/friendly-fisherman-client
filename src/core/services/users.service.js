@@ -1,5 +1,6 @@
 import { API_URL } from './Constants';
 import BaseService from './base-api.service';
+import * as jwt_decode from 'jwt-decode';
 
 export default class UsersService {
 
@@ -9,8 +10,11 @@ export default class UsersService {
 
   static getById(id) {
     return new Promise((resolve, reject) => {
-        BaseService.get(API_URL + '/users/getByProp').then((data) => {
-        resolve(data);
+      if(!id) {
+        id = jwt_decode(localStorage.getItem('token')).unique_name;
+      }
+        BaseService.get(API_URL + '/users/GetUserById', {id}).then((data) => {
+        resolve(data.data);
       }).catch(BaseService.handleError);
     });
   }
@@ -25,12 +29,12 @@ export default class UsersService {
 
   static save(user) {
     return new Promise((resolve, reject) => {
-      if(!user._id) {
+      if(!user.id) {
         BaseService.post(API_URL + '/users', user).then((data) => {
           resolve(data);
         }).catch(BaseService.handleError);
       } else {
-        BaseService.put(API_URL + '/users/' + user._id, user).then((data) => {
+        BaseService.post(API_URL + '/users/EditUser', user).then((data) => {
           resolve(data);
         }).catch(BaseService.handleError);
       }      

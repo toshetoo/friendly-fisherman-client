@@ -14,8 +14,15 @@ export class UserProfile extends React.Component {
             username: '',
             password: '',
             re_password: '',
-            email: ''
+            email: '',
+            id: ''
         };
+    }
+
+    componentDidMount() {
+        UsersService.getById().then((data) => {
+            this.setState({...data.user});
+        });
     }
 
     onChange(event) {
@@ -40,34 +47,39 @@ export class UserProfile extends React.Component {
                     <div className="divider"></div>
                     <div className="row mt-4">
                         <div className="col-2">
-                            <div className="image-holder">
+                            <div className="profile-image image-holder">
                                 <img src="./images/placeholder-face-big.png" alt="profile-img" />
                             </div>
                         </div> 
                         <div className="col-10">
-                            <form>
+                            <form onSubmit={this.onSubmit.bind(this)}>
                             <div className="row mb-2">
                                     <div className="col-6">
-                                        <input type="text" name="username" id="username" placeholder="Username" onChange={this.onChange.bind(this)} required/>
+                                        <input type="text" name="username" id="username" placeholder="Username" onChange={this.onChange.bind(this)} value={this.state.username} required/>
                                     </div>
                                     <div className="col-6">
-                                        <input type="email" name="email" id="email" placeholder="Email" onChange={this.onChange.bind(this)} required/>
+                                        <input type="email" name="email" id="email" placeholder="Email" onChange={this.onChange.bind(this)} value={this.state.email} required/>
                                     </div>
                                 </div>
                                 <div className="row mb-2">
                                     <div className="col-6">
-                                        <input type="text" name="firstName" id="firstName" placeholder="First Name" onChange={this.onChange.bind(this)} required/>
+                                        <input type="text" name="firstName" id="firstName" placeholder="First Name" onChange={this.onChange.bind(this)} value={this.state.firstName} required/>
                                     </div>
                                     <div className="col-6">
-                                        <input type="text" name="lastName" id="lastName" placeholder="Last Name" onChange={this.onChange.bind(this)} required/>
+                                        <input type="text" name="lastName" id="lastName" placeholder="Last Name" onChange={this.onChange.bind(this)} value={this.state.lastName} required/>
                                     </div>
                                 </div>
-                                <div className="row">
+                                <div className="row mb-2">
                                     <div className="col-6">
                                         <input type="password" name="password" id="password" placeholder="Password" onChange={this.onChange.bind(this)} required/>
                                     </div>
                                     <div className="col-6">
                                         <input type="password" name="re_password" id="rePassword" placeholder="Re-type password" onChange={this.onChange.bind(this)} required/>
+                                    </div>
+                                </div>
+                                <div className="row">                                    
+                                    <div className="offset-6 col-6 text-right">
+                                        <button type="submit" className="btn btn-primary">Save</button>
                                     </div>
                                 </div>
                             </form>
