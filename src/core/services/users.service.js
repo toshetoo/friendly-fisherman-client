@@ -11,7 +11,7 @@ export default class UsersService {
   static getById(id) {
     return new Promise((resolve, reject) => {
       if(!id) {
-        id = jwt_decode(localStorage.getItem('token')).unique_name;
+        id = jwt_decode(localStorage.getItem('token')).ID;
       }
         BaseService.get(API_URL + '/users/GetUserById', {id}).then((data) => {
         resolve(data.data);
