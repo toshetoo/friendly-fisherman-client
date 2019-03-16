@@ -12,7 +12,7 @@ export class Post extends React.Component {
                 <div className="col-12">
                     <div className="post">
                         <div className="row pb-2">
-                            <div className="col-2">
+                            <div className="col-2 pl-0">
                                 <div className="image-holder d-flex justify-content-center">
                                     <img src="./images/avatar.jpg" alt="avatar" />
                                 </div>
@@ -20,7 +20,7 @@ export class Post extends React.Component {
 
                                 </div>
                             </div>
-                            <div className="col-8">
+                            <div className="col-8 pl-0 pr-0">
                                 <h5 className="mt-3">
                                     <Link to="/thread/10">10 Kids Unaware of Their Halloween Costume</Link>
                                 </h5>
@@ -28,7 +28,7 @@ export class Post extends React.Component {
                                     It's one thing to subject yourself to a Halloween costume mishap because, hey, that's your prerogative.
                                                 </p>
                             </div>
-                            <div className="col-2">
+                            <div className="col-2 pl-0">
                                 <div className="reply-count">
                                     <div className="commentbg">
                                         560
