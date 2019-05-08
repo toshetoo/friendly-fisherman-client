@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { InputGroup, InputGroupAddon, Button, Input, UncontrolledDropdown, DropdownToggle, DropdownMenu } from "reactstrap";
+import { InputGroup, InputGroupAddon, Button, Input, UncontrolledDropdown, DropdownToggle, DropdownMenu, Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./Header.scss";
@@ -48,7 +48,10 @@ export class Header extends React.Component {
                           <img src="./images/avatar.jpg" alt="profile-img" />
                       </DropdownToggle>
                       <DropdownMenu>
-                          <Link to="/profile" className="ml-2 text-center">Profile</Link>
+                        <Row>
+                          <Col sm={12}><Link to="/profile" className="ml-2 text-center">Profile</Link></Col>
+                          <Col sm={12}><Link to="/home" className="ml-2 text-center" onClick={() => UsersService.logout()}>Log out</Link></Col>
+                        </Row>                          
                       </DropdownMenu>
                   </UncontrolledDropdown>
               </span>                

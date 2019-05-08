@@ -21,7 +21,7 @@ export class UserProfile extends React.Component {
 
     componentDidMount() {
         UsersService.getById().then((data) => {
-            this.setState({...data.user});
+            this.setState({...data.item});
         });
     }
 

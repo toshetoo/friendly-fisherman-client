@@ -13,7 +13,8 @@ export class Register extends React.Component {
             username: '',
             password: '',
             email: '',
-            errors: ''
+            errors: '',
+            showConfirmationMessage: false,
         };
     }
 
@@ -27,13 +28,13 @@ export class Register extends React.Component {
     onSubmit(event) {
         event.preventDefault();
         AuthService.register(this.state).then((response) => {
-            if(response.data.error) {
+            if (response.data.message) {
                 this.setState({
-                    errors: response.data.error
+                    errors: response.data.message
                 });
             } else {
-                this.props.history.push('/home');
-            }            
+                this.setState({ showConfirmationMessage: true });
+            }
         });
     }
 
@@ -46,33 +47,38 @@ export class Register extends React.Component {
                             <img src="./images/logo.jpg" alt="logo" />
                         </a>
                     </div>
-                    <div className="errors text-center">
+
+                    <div hidden={this.state.showConfirmationMessage} className="errors text-center">
                         <span className="text-danger">{this.state.errors}</span>
                     </div>
+                    <div hidden={!this.state.showConfirmationMessage} className="text-center">
+                        <span className="text-success">A confirmation message has been sent to your email.</span>
+                    </div>
+
                     <form onSubmit={this.onSubmit.bind(this)}>
                         <div className="row">
                             <div className="col-12 mt-3">
-                                <input type="email" name="email" id="email" placeholder="Email" onChange={this.onChange.bind(this)} required/>
+                                <input type="email" name="email" id="email" placeholder="Email" onChange={this.onChange.bind(this)} required />
                             </div>
                         </div>
                         <div className="row mt-3">
                             <div className="col-12">
-                                <input type="text" name="username" id="username" placeholder="Username" onChange={this.onChange.bind(this)} required/>
-                            </div>                        
-                        </div>
-                        <div className="row">
-                            <div className="col-12 mt-3">
-                                <input type="password" name="password" id="password" placeholder="Password" onChange={this.onChange.bind(this)} required/>
+                                <input type="text" name="username" id="username" placeholder="Username" onChange={this.onChange.bind(this)} required />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-12 mt-3">
-                                <input type="text" name="firstName" id="firstName" placeholder="First Name" onChange={this.onChange.bind(this)} required/>
+                                <input type="password" name="password" id="password" placeholder="Password" onChange={this.onChange.bind(this)} required />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-12 mt-3">
-                                <input type="text" name="lastName" id="lastName" placeholder="Last Name" onChange={this.onChange.bind(this)} required/>
+                                <input type="text" name="firstName" id="firstName" placeholder="First Name" onChange={this.onChange.bind(this)} required />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-12 mt-3">
+                                <input type="text" name="lastName" id="lastName" placeholder="Last Name" onChange={this.onChange.bind(this)} required />
                             </div>
                         </div>
                         <div className="row">
@@ -82,7 +88,7 @@ export class Register extends React.Component {
                         </div>
                     </form>
                 </div>
-            </div>   
+            </div>
         );
     }
 }

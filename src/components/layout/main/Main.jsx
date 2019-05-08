@@ -6,7 +6,9 @@ import { ActiveThreads } from '../../content/posts/active-threads/ActiveThreads'
 import { UserProfile } from '../../user/profile/UserProfile';
 import { Switch, Route, Redirect } from "react-router-dom";
 import { ThreadDetailsHolder } from './../../content/posts/thread-details/holder/ThreadDetailsHolder';
+import { ConfirmAccount } from './../../auth/confirm/ConfirmAccount';
 import ProtectedRoute from './../../../core/routes/ProtectedRoute';
+import { ResetPassword } from '../../auth/reset-password/ResetPassword';
 
 export class Main extends React.Component {
 
@@ -18,6 +20,9 @@ export class Main extends React.Component {
                         <Switch>
                             <Route exact path="/home" component={PostsHolder} />
                             <Route exact path="/thread/:id" component={ThreadDetailsHolder} />
+                            <Route exact path="/auth/confirm" component={ConfirmAccount} />
+                            <Route exact path="/auth/reset-password" component={ResetPassword} />
+
 
                             <ProtectedRoute exact path="/profile" component={UserProfile} />
                             <Redirect from="/" to="/home" />

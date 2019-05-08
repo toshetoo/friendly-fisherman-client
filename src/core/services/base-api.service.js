@@ -7,6 +7,12 @@ export default class BaseService {
         return !!localStorage.getItem('token');
     }
 
+    static logout() {
+        localStorage.removeItem('token');
+        history.push('/login');
+        window.location.reload();
+    }
+
     static get(url, getParams) {
         let token = localStorage.getItem('token');
 
