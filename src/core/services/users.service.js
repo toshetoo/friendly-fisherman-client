@@ -1,6 +1,5 @@
 import { API_URL } from './Constants';
 import BaseService from './base-api.service';
-import * as jwt_decode from 'jwt-decode';
 
 export default class UsersService {
 
@@ -15,7 +14,7 @@ export default class UsersService {
   static getById(id) {
     return new Promise((resolve, reject) => {
       if (!id) {
-        id = jwt_decode(localStorage.getItem('token')).ID;
+        id = BaseService.getLoggedUserId();
       }
       BaseService.get(API_URL + '/users/GetUserById/' + id).then((data) => {
         resolve(data.data);

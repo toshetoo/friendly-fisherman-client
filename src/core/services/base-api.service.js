@@ -1,7 +1,21 @@
 import axios from 'axios';
 import history from "../history/History";
-
+import * as jwt_decode from 'jwt-decode';
 export default class BaseService {
+
+    static getLoggedUserId() {
+        return jwt_decode(localStorage.getItem('token')).ID;
+    }
+
+    static getConfig() {
+        let token = localStorage.getItem('token');
+
+        return {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        };
+    }
 
     static getUser() {
         return !!localStorage.getItem('token');
@@ -14,13 +28,7 @@ export default class BaseService {
     }
 
     static get(url, getParams) {
-        let token = localStorage.getItem('token');
-
-        let config = {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            }
-        };
+        let config = this.getConfig();
 
         if (getParams) {
             config['params'] = getParams;
@@ -30,37 +38,19 @@ export default class BaseService {
     }
 
     static post(url, data) {
-        let token = localStorage.getItem('token');
-
-        let config = {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            }
-        };
+        let config = this.getConfig();
 
         return axios.post(url, data, config);
     }
 
     static put(url, data) {
-        let token = localStorage.getItem('token');
-
-        let config = {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            }
-        };
+        let config = this.getConfig();
 
         return axios.put(url, data, config);
     }
 
     static delete(url, getParams) {
-        let token = localStorage.getItem('token');
-
-        let config = {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            }
-        };
+        let config = this.getConfig();
 
         return axios.delete(url, config);
     }
@@ -69,13 +59,7 @@ export default class BaseService {
         const data = new FormData();
         data.append('file', file);
 
-        let token = localStorage.getItem('token');
-
-        let config = {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            }
-        };
+        let config = this.getConfig();
 
         return axios.post(url, data, config);
     }

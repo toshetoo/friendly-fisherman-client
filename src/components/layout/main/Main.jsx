@@ -9,6 +9,7 @@ import { ThreadDetailsHolder } from './../../content/posts/thread-details/holder
 import { ConfirmAccount } from './../../auth/confirm/ConfirmAccount';
 import ProtectedRoute from './../../../core/routes/ProtectedRoute';
 import { ResetPassword } from '../../auth/reset-password/ResetPassword';
+import { Messages } from '../../user/messages/Messages';
 
 export class Main extends React.Component {
 
@@ -23,7 +24,7 @@ export class Main extends React.Component {
                             <Route exact path="/auth/confirm" component={ConfirmAccount} />
                             <Route exact path="/auth/reset-password" component={ResetPassword} />
 
-
+                            <ProtectedRoute exact path="/messages" component={Messages} />
                             <ProtectedRoute exact path="/profile" component={UserProfile} />
                             <Redirect from="/" to="/home" />
                         </Switch>
