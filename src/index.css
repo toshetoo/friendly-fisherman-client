@@ -44,3 +44,16 @@ input {
     height: 50px;
     width: 100%;
 }
+
+textarea {
+  border-radius: 2px;
+    box-shadow: none;
+    border: none;
+    background-color: #f1f1f1;
+    padding: 20px;
+    font-size: 14px;
+    color: #989c9e;
+    font-family: 'Open Sans Light', sans-serif;
+    margin-bottom: 20px;
+    width: 100%;
+} 

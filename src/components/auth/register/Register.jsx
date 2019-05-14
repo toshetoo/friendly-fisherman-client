@@ -44,7 +44,7 @@ export class Register extends React.Component {
                 <div className="register-holder">
                     <div className="logo-holder-register d-flex justify-content-center">
                         <a href="/home">
-                            <img src="./images/logo.jpg" alt="logo" />
+                            <img src="/images/logo.jpg" alt="logo" />
                         </a>
                     </div>
 

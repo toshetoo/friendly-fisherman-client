@@ -13,7 +13,7 @@ export class ThreadDetails extends React.Component {
                         <div className="row pb-2">
                             <div className="col-2">
                                 <div className="image-holder d-flex justify-content-center">
-                                    <img src="../images/avatar.jpg" alt="profile-img" />
+                                    <img src="/images/avatar.jpg" alt="profile-img" />
                                 </div>
                                 <div className="badges">
 
@@ -21,7 +21,7 @@ export class ThreadDetails extends React.Component {
                             </div>
                             <div className="col-10">
                                 <h5 className="mt-3">
-                                    <a>10 Kids Unaware of Their Halloween Costume</a>
+                                    <span>10 Kids Unaware of Their Halloween Costume</span>
                                 </h5>
                                 <p className="description text-muted">
                                     It's one thing to subject yourself to a Halloween costume mishap because, hey, that's your prerogative.

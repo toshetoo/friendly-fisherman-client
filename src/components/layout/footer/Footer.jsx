@@ -12,7 +12,7 @@ export class Footer extends React.Component {
                 <div className="container d-flex align-items-center">
                     <div className="row width-100">
                         <div className="col-1">
-                            <img src="./images/logo.jpg" alt="logo" />
+                            <img src="/images/logo.jpg" alt="logo" />
                         </div>
                         <div className="col-5 text-center d-flex align-items-center justify-content-end">
                             <span>Copyrights 2019, Friendly Fisherman</span>

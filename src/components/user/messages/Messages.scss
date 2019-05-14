@@ -1,0 +1,44 @@
+.send-message {
+    position: absolute;
+    right: 20px;
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.cancel-button {
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.faIcon{
+    margin: 2px;
+    padding: 5px;
+    cursor: pointer;
+    width: 30px !important;
+    height: 30px !important;
+
+    &:hover {
+        opacity: 1;
+        color: #fff;
+        border-radius: 50%;
+        transition: all 0.4s;
+    }
+}
+
+.checkCircle {
+    color: green;
+    &:hover {
+        background: green;
+    }
+}
+
+.trash {
+    color:red;
+    &:hover {
+        background: red;
+    }
+}

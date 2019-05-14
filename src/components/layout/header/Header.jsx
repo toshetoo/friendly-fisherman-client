@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./Header.scss";
 import UsersService from './../../../core/services/users.service';
+import MessagesService from './../../../core/services/messages.service';
 
 export class Header extends React.Component {
 
@@ -15,7 +16,7 @@ export class Header extends React.Component {
         this.stateInterval = undefined;
 
         this.state = {
-            numberOfMessages: 2,
+            numberOfMessages: 0,
         }
     }
 
@@ -24,7 +25,9 @@ export class Header extends React.Component {
 
         if (isLoggedIn) {
             this.stateInterval = setInterval(() => {
-                console.log('update message icon');
+                MessagesService.getNewMessagesCount().then((response) => {
+                    this.setState({ numberOfMessages: response.data.numberOfNewMessages })
+                })
             }, 5000)
         }
     }
@@ -34,7 +37,9 @@ export class Header extends React.Component {
 
         if (isLoggedIn) {
             this.stateInterval = setInterval(() => {
-                console.log('update message icon');
+                MessagesService.getNewMessagesCount().then((response) => {
+                    this.setState({ numberOfMessages: response.data.numberOfNewMessages })
+                })
             }, 5000)
         }
     }
@@ -51,13 +56,13 @@ export class Header extends React.Component {
         return (
             <div className="header-content">
                 <div className="image-block">
-                    <img src="./images/slide.jpg" alt="header" />
+                    <img src="/images/slide.jpg" alt="header" />
                 </div>
                 <div className="action-bar container">
                     <div className="row">
                         <div className="col-2">
                             <div className="logo-holder">
-                                <Link to="/home"><img src="./images/logo.jpg" alt="logo" /></Link>
+                                <Link to="/home"><img src="/images/logo.jpg" alt="logo" /></Link>
                             </div>
                         </div>
                         <div className="col-8 d-flex justify-content-end align-items-center">
@@ -74,13 +79,13 @@ export class Header extends React.Component {
                         {isLoggedIn ?
                             <div className="col-2 pl-0 ml-0 d-flex justify-content-end align-items-center">
                                 <span className="icon-holder mr-2 text-muted">
-                                    <span className="number-of-messages" hidden={numberOfMessages == 0}>{numberOfMessages}</span>
+                                    <span className="number-of-messages" hidden={numberOfMessages === 0}>{numberOfMessages}</span>
                                     <Link to="/messages"><FontAwesomeIcon icon={faEnvelope} color={messageNotificationColor} /></Link>
                                 </span>
                                 <span className="nav-profile-holder cursor-pointer mr-4">
                                     <UncontrolledDropdown>
                                         <DropdownToggle tag="a" className="avatar-holder" caret>
-                                            <img src="./images/avatar.jpg" alt="profile-img" />
+                                            <img src="/images/avatar.jpg" alt="profile-img" />
                                         </DropdownToggle>
                                         <DropdownMenu>
                                             <Row>

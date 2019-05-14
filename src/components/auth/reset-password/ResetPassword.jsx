@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import AuthService from '../../../core/services/auth.service';
-import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 
 export class ResetPassword extends React.Component {
@@ -59,7 +58,7 @@ export class ResetPassword extends React.Component {
                 <div className="login-holder">
                     <div className="logo-holder-login d-flex justify-content-center">
                         <a href="/home">
-                            <img src="./images/logo.jpg" alt="logo" />
+                            <img src="/images/logo.jpg" alt="logo" />
                         </a>
                     </div>
                     <div className="errors text-center">

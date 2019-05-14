@@ -1,7 +1,6 @@
 
 import React from 'react';
 import './UserProfile.scss';
-import { Media } from 'reactstrap';
 import UsersService from './../../../core/services/users.service';
 export class UserProfile extends React.Component {
 
@@ -48,7 +47,7 @@ export class UserProfile extends React.Component {
                     <div className="row mt-4">
                         <div className="col-2">
                             <div className="profile-image image-holder">
-                                <img src="./images/placeholder-face-big.png" alt="profile-img" />
+                                <img src="/placeholder-face-big.png" alt="profile-img" />
                             </div>
                         </div> 
                         <div className="col-10">

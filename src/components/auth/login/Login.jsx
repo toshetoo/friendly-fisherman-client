@@ -43,7 +43,7 @@ export class Login extends React.Component {
                 <div className="login-holder">
                     <div className="logo-holder-login d-flex justify-content-center">
                         <a href="/home">
-                            <img src="./images/logo.jpg" alt="logo" />
+                            <img src="/images/logo.jpg" alt="logo" />
                         </a>
                     </div>
                     <div className="errors text-center">

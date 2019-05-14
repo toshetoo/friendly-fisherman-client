@@ -1,7 +1,5 @@
 import React from 'react';
-import { Button } from 'reactstrap';
 import AuthService from '../../../core/services/auth.service';
-import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 
 export class ConfirmAccount extends React.Component {
