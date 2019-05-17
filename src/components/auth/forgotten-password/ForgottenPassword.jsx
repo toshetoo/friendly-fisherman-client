@@ -40,7 +40,7 @@ export class ForgottenPassword extends React.Component {
                 <div className="forgotten-password-holder">
                     <div className="logo-holder-login d-flex justify-content-center">
                         <a href="/home">
-                            <img src="./images/logo.jpg" alt="logo" />
+                            <img src="/images/logo.jpg" alt="logo" />
                         </a>
                     </div>
                     <div>

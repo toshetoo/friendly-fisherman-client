@@ -11,6 +11,8 @@ import { ResetPassword } from '../../auth/reset-password/ResetPassword';
 import { PollOfTheWeek } from './../../content/polls/poll-of-the-week/PollOfTheWeek';
 import { PollsList } from './../../content/polls/polls-list/PollsList';
 import { AddPoll } from './../../content/polls/add-poll/AddPoll';
+import { Messages } from '../../user/messages/Messages';
+import { NewMessage } from './../../user/messages/NewMessage';
 
 export class Main extends React.Component {
 
@@ -25,7 +27,8 @@ export class Main extends React.Component {
                             <Route exact path="/auth/confirm" component={ConfirmAccount} />
                             <Route exact path="/auth/reset-password" component={ResetPassword} />
 
-
+                            <ProtectedRoute exact path="/messages/:selectedTab?" component={Messages} />
+                            <ProtectedRoute exact path="/new-message" component={NewMessage} />
                             <ProtectedRoute exact path="/profile" component={UserProfile} />
                             <ProtectedRoute exact path="/polls-list" component={PollsList} />
                             <ProtectedRoute exact path="/add-poll" component={AddPoll} />

@@ -49,8 +49,19 @@
     }
 
     .icon-holder {
+        position: relative;
         font-size: 1.5rem;
         cursor: pointer;
+
+        .number-of-messages {
+            right: 0;
+            bottom: 0;
+            font-size: 15px;
+            color: #ca263c;
+            font-weight: bold;
+            position: absolute;
+            font-family: 'Open Sans Bold', sans-serif;
+        }
     }
 
     .avatar-holder {

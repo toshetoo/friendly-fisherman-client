@@ -14,19 +14,19 @@ export class ActiveThreads extends React.Component {
                 </div>
                 <div className="divider"></div>
                 <div className="thread">
-                    <a href="#">This Dock Turns Your iPhone Into a Bedside Lamp</a>
+                    <Link to="/thread/10">This Dock Turns Your iPhone Into a Bedside Lamp</Link>
                 </div>
                 <div className="divider"></div>
                 <div className="thread">
-                    <a href="#">This Dock Turns Your iPhone Into a Bedside Lamp</a>
+                    <Link to="/thread/10">This Dock Turns Your iPhone Into a Bedside Lamp</Link>
                 </div>
                 <div className="divider"></div>
                 <div className="thread">
-                    <a href="#">This Dock Turns Your iPhone Into a Bedside Lamp</a>
+                    <Link to="/thread/10">This Dock Turns Your iPhone Into a Bedside Lamp</Link>
                 </div>
                 <div className="divider"></div>
                 <div className="thread">
-                    <a href="#">This Dock Turns Your iPhone Into a Bedside Lamp</a>
+                    <Link to="/thread/10">This Dock Turns Your iPhone Into a Bedside Lamp</Link>
                 </div>
             </div>
         );
