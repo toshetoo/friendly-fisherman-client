@@ -2,7 +2,6 @@ import React from 'react';
 import './ForgottenPassword.scss';
 import { Button } from 'reactstrap';
 import AuthService from '../../../core/services/auth.service';
-import { Link } from 'react-router-dom';
 
 export class ForgottenPassword extends React.Component {
 

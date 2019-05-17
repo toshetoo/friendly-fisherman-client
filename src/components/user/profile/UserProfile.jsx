@@ -1,7 +1,6 @@
 
 import React from 'react';
 import './UserProfile.scss';
-import { Media } from 'reactstrap';
 import UsersService from './../../../core/services/users.service';
 export class UserProfile extends React.Component {
 
