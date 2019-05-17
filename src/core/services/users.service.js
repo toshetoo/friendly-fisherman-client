@@ -8,6 +8,10 @@ export default class UsersService {
     return BaseService.getUser();
   }
 
+  static getLoggedUserId() {
+    return jwt_decode(localStorage.getItem('token')).ID;
+  }
+
   static logout() {
     return BaseService.logout();
   }

@@ -1,0 +1,34 @@
+.poll-creation-container {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+
+    .form-holder {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        box-shadow: 1px 1px #8080803b;
+        padding-bottom: 20px;
+        border: 1px solid gray;
+        width: 100%;
+        align-self: center;
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            button {
+                border: none;
+                box-shadow: none;
+                font-size: 14px;
+                font-family: 'Open Sans Bold', sans-serif;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+    }
+}
+
