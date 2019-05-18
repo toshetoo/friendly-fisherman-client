@@ -74,7 +74,7 @@ export class Header extends React.Component {
                                     </Button>
                                 </InputGroupAddon>
                             </InputGroup>
-                            <button className="create-topic-btn">Create topic</button>
+                            <Link to="/create-topic"><button className="create-topic-btn">Create topic</button></Link>
                         </div>
                         {isLoggedIn ?
                             <div className="col-2 pl-0 ml-0 d-flex justify-content-end align-items-center">
