@@ -19,8 +19,6 @@ export class Poll extends React.Component {
             this.setState({
                 votedAnswerId: response.data.item.answerId
             });
-
-            console.log(response.data.item);
         });
     }
 
@@ -39,7 +37,7 @@ export class Poll extends React.Component {
 
         const answers = this.props.poll.answers.map(ans => {
             return (
-                <div className="answer">
+                <div className="answer" key={ans.id}>
                     <Progress color='success' value={ans.percentage}> {ans.content} </Progress> 
                     <Button color={(this.state.votedAnswerId === ans.id) ? 'primary' : 'secondary'}
                     onClick={() => this.onAnswerClick(ans)}>

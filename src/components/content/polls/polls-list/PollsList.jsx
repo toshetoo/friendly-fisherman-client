@@ -4,7 +4,6 @@ import PollsService from '../../../../core/services/polls.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrashAlt, faPoll } from '@fortawesome/free-solid-svg-icons';
 import history from './../../../../core/history/History';
-import UsersService from './../../../../core/services/users.service';
 import { UncontrolledTooltip } from 'reactstrap';
 
 export class PollsList extends React.Component {
@@ -56,7 +55,7 @@ export class PollsList extends React.Component {
     render() {
         const polls = this.state.polls.map(poll => {
             return (
-                <div className="list-item">
+                <div className="list-item" key={poll.id}>
                     <div className="row">
                         <div className="col-10 p-3">
                             <h4 className="ml-3 cursor-pointer">{poll.question}</h4>
