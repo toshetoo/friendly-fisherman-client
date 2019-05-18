@@ -13,6 +13,8 @@ import { PollsList } from './../../content/polls/polls-list/PollsList';
 import { AddPoll } from './../../content/polls/add-poll/AddPoll';
 import { Messages } from '../../user/messages/Messages';
 import { NewMessage } from './../../user/messages/NewMessage';
+import { TrendingCategories } from '../../content/categories/trending-categories/TrendingCategories';
+import { AddCategory } from './../../content/categories/add-category/AddCaregory';
 
 export class Main extends React.Component {
 
@@ -33,11 +35,16 @@ export class Main extends React.Component {
                             <ProtectedRoute exact path="/polls-list" component={PollsList} />
                             <ProtectedRoute exact path="/add-poll" component={AddPoll} />
                             <ProtectedRoute exact path="/add-poll/:id" component={AddPoll} />
+                            <ProtectedRoute exact path="/categories-list" component={CategoriesList} />
+                            <ProtectedRoute exact path="/add-category" component={AddCategory} />
+                            <ProtectedRoute exact path="/add-category/:id" component={AddCategory} />
+
+
                             <Redirect from="/" to="/home" />
                         </Switch>
                     </div>
                     <div className="col-12 col-sm-4">
-                        <CategoriesList />
+                        <TrendingCategories />
                         <PollOfTheWeek />
                         <ActiveThreads />
                     </div>
