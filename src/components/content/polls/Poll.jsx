@@ -17,7 +17,7 @@ export class Poll extends React.Component {
     componentDidMount() {
         PollsService.getVotedAnswerForPoll(this.props.poll.id).then((response) => {
             this.setState({
-                votedAnswerId: response.data.item.answerId
+                votedAnswerId: response.data.item ? response.data.item.answerId : undefined
             });
         });
     }
