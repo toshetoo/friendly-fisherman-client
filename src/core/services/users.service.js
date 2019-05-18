@@ -1,5 +1,6 @@
 import { API_URL } from './Constants';
 import BaseService from './base-api.service';
+import * as jwt_decode from 'jwt-decode';
 
 export default class UsersService {
 

@@ -25,18 +25,27 @@ export class PollOfTheWeek extends React.Component {
     onList() {
         history.push('/polls-list');
     }
+
+    refreshPoll() {
+        PollsService.getPollOfTheWeek().then((data) => {
+            this.setState({
+                poll: data.data.item
+            })
+        })
+    }
     
     render() {
         let poll = <div>No poll of the week!</div>;
 
         if (this.state.poll) {
-            poll = <Poll question={this.state.poll.question} answers={this.state.poll.answers}/>;
+            poll = <Poll poll={this.state.poll} refreshPoll={this.refreshPoll.bind(this)}/>;
         }
 
         return (
             <div className="poll-holder">
                 <div className="header-holder d-flex">
-                    <span className="heading">Poll of the Week</span><span className="cursor-pointer list-btn" onClick={this.onList.bind(this)}>List</span>
+                    <span className="heading">Poll of the Week</span>
+                    <span className="cursor-pointer list-btn" onClick={this.onList.bind(this)}>List</span>
                 </div>                
                 <div className="divider"></div>          
 

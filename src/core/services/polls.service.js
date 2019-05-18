@@ -34,9 +34,12 @@ export default class PollsService {
     });
   }
 
-  static addVote(pollVote) {
+  static addVote(pollId, answerId) {
+    const userId =  BaseService.getLoggedUserId();
+    const vote = { pollId, answerId, userId };
+
     return new Promise((resolve, reject) => {
-      BaseService.post(API_URL + '/polls/AddPollVote', pollVote).then((image) => {
+      BaseService.post(API_URL + '/polls/AddPollVote', vote).then((image) => {
         resolve(image);
       }).catch(BaseService.handleError);
     });
@@ -57,4 +60,14 @@ export default class PollsService {
       }).catch(BaseService.handleError);
     });
   }
+
+  static getVotedAnswerForPoll(pollId) {
+    return new Promise((resolve, reject) => {
+      const userId = BaseService.getLoggedUserId();
+      const url = `${API_URL}/polls/GetVotedAnswerForPoll/${pollId}/${userId}`;
+      BaseService.get(url).then((poll) => {
+        resolve(poll);
+      }).catch(BaseService.handleError);
+    });
+  }  
 }
