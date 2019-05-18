@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 
 export class Post extends React.Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div className="row">
@@ -22,21 +26,22 @@ export class Post extends React.Component {
                             </div>
                             <div className="col-8 pl-0 pr-0">
                                 <h5 className="mt-3">
-                                    <Link to="/thread/10">10 Kids Unaware of Their Halloween Costume</Link>
+                                    <Link to={`/thread/${this.props.post.id}}`}>{this.props.post.title}</Link>
                                 </h5>
                                 <p className="description text-muted">
-                                    It's one thing to subject yourself to a Halloween costume mishap because, hey, that's your prerogative.
-                                                </p>
+                                    {this.props.post.description}
+                                </p>
                             </div>
                             <div className="col-2 pl-0">
                                 <div className="reply-count">
                                     <div className="commentbg">
-                                        560
-                                        <div className="mark"></div>
+                                        {/* {this.props.post.replies.count} */}
+                                        400
+                                    <div className="mark"></div>
                                     </div>
                                 </div>
                                 <div className="views text-muted">
-                                    <FontAwesomeIcon icon={faEye} /> <span>32,323</span>
+                                    <FontAwesomeIcon icon={faEye} /> <span>{this.props.post.seenCount}</span>
                                 </div>
                                 <div className="created-on">
                                     <FontAwesomeIcon icon={faClock} /> <span>24 min</span>
