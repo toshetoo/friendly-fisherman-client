@@ -27,7 +27,6 @@ export class PostsHolder extends React.Component {
 
         return (
             <div className="posts-holder">
-                <Post post={{}}/>
                 {posts}
             </div>
         );
