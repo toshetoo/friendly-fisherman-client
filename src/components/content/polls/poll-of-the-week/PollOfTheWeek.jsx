@@ -3,6 +3,9 @@ import './PollOfTheWeek.scss';
 import { Poll } from './../Poll';
 import history from './../../../../core/history/History';
 import PollsService from '../../../../core/services/polls.service';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
+import { UncontrolledTooltip } from 'reactstrap';
 
 export class PollOfTheWeek extends React.Component {
     
@@ -27,11 +30,16 @@ export class PollOfTheWeek extends React.Component {
     }
 
     refreshPoll() {
-        PollsService.getPollOfTheWeek().then((data) => {
-            this.setState({
-                poll: data.data.item
+        this.setState({
+            isLoading: true
+        }, () => {
+            PollsService.getPollOfTheWeek().then((data) => {
+                this.setState({
+                    poll: data.data.item,
+                    isLoading: false
+                })
             })
-        })
+        })       
     }
     
     render() {
@@ -44,7 +52,17 @@ export class PollOfTheWeek extends React.Component {
         return (
             <div className="poll-holder">
                 <div className="header-holder d-flex">
-                    <span className="heading">Poll of the Week</span>
+                    <span className="heading">
+                        Poll of the Week 
+                        <FontAwesomeIcon icon={faSyncAlt}
+                            onClick={() => this.refreshPoll()} 
+                            id="refresh-poll" 
+                            className={"ml-2 cursor-pointer " + (this.state.isLoading ? 'fa-spin' : '')}>
+                        </FontAwesomeIcon>
+                        <UncontrolledTooltip placement="top" target="refresh-poll">
+                                Refresh
+                        </UncontrolledTooltip>
+                    </span>
                     <span className="cursor-pointer list-btn" onClick={this.onList.bind(this)}>List</span>
                 </div>                
                 <div className="divider"></div>          
