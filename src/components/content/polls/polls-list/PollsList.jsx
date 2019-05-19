@@ -50,7 +50,8 @@ export class PollsList extends React.Component {
         PollsService.makePollOfTheWeek(pollId).then(() => {
             const polls = this.state.polls;
             let oldPoll = polls.find(p => p.isPollOfTheWeek);
-            oldPoll.isPollOfTheWeek = false;
+            if (oldPoll)
+                oldPoll.isPollOfTheWeek = false;
 
             let newPoll = polls.find(p => p.id === pollId);
             newPoll.isPollOfTheWeek = true;

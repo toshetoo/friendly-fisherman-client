@@ -18,7 +18,8 @@ export class AddPoll extends React.Component {
             createdOn: '',
             endOn: '',
             createdBy: UsersService.getLoggedUserId(),
-            answers: []
+            answers: [],
+            isPollOfTheWeek: false
         };
     }
 
@@ -32,7 +33,8 @@ export class AddPoll extends React.Component {
                     createdOn: item.createdOn,
                     endOn: item.endOn,
                     createdBy: item.createdBy,
-                    answers: item.answers || []
+                    answers: item.answers || [],
+                    isPollOfTheWeek: item.isPollOfTheWeek
                 });
             })
         }
