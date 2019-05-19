@@ -6,6 +6,7 @@ import UsersService from './../../../../core/services/users.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import history from './../../../../core/history/History';
+import * as moment from 'moment';
 
 export class AddPoll extends React.Component {
     constructor(props) {
@@ -84,6 +85,10 @@ export class AddPoll extends React.Component {
     }
 
     render() {
+        let { createdOn, endOn } = this.state;
+        createdOn = moment(createdOn).format('YYYY-MM-DD');
+        endOn = moment(endOn).format('YYYY-MM-DD');
+
         const answers = [];
         for (let i = 0; i < this.state.answers.length; i++) {
             const element = this.state.answers[i].content;
@@ -127,7 +132,7 @@ export class AddPoll extends React.Component {
                                 id="createdOn" 
                                 placeholder="Start on" 
                                 onChange={this.onChange.bind(this)}
-                                value={this.state.createdOn}
+                                value={createdOn}
                                 required />
                             </div>
                         </div>
@@ -138,7 +143,7 @@ export class AddPoll extends React.Component {
                                 id="endOn" 
                                 placeholder="End on" 
                                 onChange={this.onChange.bind(this)}
-                                value={this.state.endOn}
+                                value={endOn}
                                 required />
                             </div>
                         </div>
