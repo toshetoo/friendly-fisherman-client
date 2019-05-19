@@ -4,7 +4,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown, faReply, faClock } from '@fortawesome/free-solid-svg-icons';
 
 export class ThreadDetails extends React.Component {
+
+    onLikeClicked() {
+        this.props.onLikeClicked(this.props.thread.id);
+    }
+
+    onDislikeClicked() {
+        this.props.onDislikeClicked(this.props.thread.id);
+    }
+
     render() {
+
+        let { authorImageUrl } = this.props.thread;
+        if (!authorImageUrl) {
+            authorImageUrl = '/images/placeholder-face-big.png';
+        }
+
         return (
             <div className="thread-details-single">
                  <div className="row">
@@ -13,7 +28,7 @@ export class ThreadDetails extends React.Component {
                         <div className="row pb-2">
                             <div className="col-2">
                                 <div className="image-holder d-flex justify-content-center">
-                                    <img src="/images/avatar.jpg" alt="profile-img" />
+                                    <img src={authorImageUrl} alt="profile-img" />
                                 </div>
                                 <div className="badges">
 
@@ -21,12 +36,9 @@ export class ThreadDetails extends React.Component {
                             </div>
                             <div className="col-10">
                                 <h5 className="mt-3">
-                                    <span>10 Kids Unaware of Their Halloween Costume</span>
+                                    <span>{this.props.thread.title}</span>
                                 </h5>
-                                <p className="description text-muted">
-                                    It's one thing to subject yourself to a Halloween costume mishap because, hey, that's your prerogative.
-                                    It's one thing to subject yourself to a Halloween costume mishap because, hey, that's your prerogative.
-                                    It's one thing to subject yourself to a Halloween costume mishap because, hey, that's your prerogative.It's one thing to subject yourself to a Halloween costume mishap because, hey, that's your prerogative.
+                                <p className="description text-muted" dangerouslySetInnerHTML={{ __html: this.props.thread.subtitle }}>
                                 </p>
                             </div>
                         </div>
@@ -34,13 +46,17 @@ export class ThreadDetails extends React.Component {
                         <div className="row">
                             <div className="offset-2 col-10 postfooter">
                                 <div className="likeblock">
-                                        <span className="up mr-2"><FontAwesomeIcon icon={faThumbsUp}/> 25</span>
-                                        <span className="down ml-2 mr-2"><FontAwesomeIcon icon={faThumbsDown}/> 3</span>
+                                        <span className="up mr-2">
+                                            <FontAwesomeIcon icon={faThumbsUp} className="cursor-pointer" onClick={this.onLikeClicked.bind(this)}/> {this.props.thread.likes}
+                                        </span>
+                                        <span className="down ml-2 mr-2">
+                                            <FontAwesomeIcon icon={faThumbsDown} className="cursor-pointer" onClick={this.onDislikeClicked.bind(this)}/> {this.props.thread.dislikes}
+                                            </span>
                                 </div>
                                 <div className="prev">                                        
-                                    <span><FontAwesomeIcon icon={faReply} /></span>
+                                    <span><FontAwesomeIcon icon={faReply} className="cursor-pointer"/></span>
                                 </div>
-                                <div className="posted ml-2"><FontAwesomeIcon icon={faClock} /> Posted on : 20 Nov @ 9:30am</div>
+                                <div className="posted ml-2"><FontAwesomeIcon icon={faClock} /> Posted on : {this.props.thread.createdOn}</div>
                             </div>
                         </div>
                     </div>

@@ -96,7 +96,7 @@ export class AddPoll extends React.Component {
             const element = this.state.answers[i].content;
             
             answers.push(
-                <div className="row mt-3 ml-1">
+                <div className="row mt-3 ml-1" key={i}>
                     <div className="col-12 d-flex align-items-center">
                         <input type="text" name={i} id={'answer_' + i} placeholder={'Answer ' + (i + 1)} onChange={(e) => this.onAnswerChange(i, e)} value={element} required/>
                         <span className="cursor-pointer ml-2" onClick={() => this.removeAnswer(i)}><FontAwesomeIcon icon={faTrashAlt} /></span>
