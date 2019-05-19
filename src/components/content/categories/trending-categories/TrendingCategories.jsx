@@ -20,7 +20,7 @@ export class TrendingCategories extends React.Component {
     componentDidMount() {        
         CategoriesService.getTrendingCategories().then((response) => {
             this.setState({
-                categories: response.item || []
+                categories: Object.values(response.item) || []
             });            
         });
     }
@@ -31,7 +31,7 @@ export class TrendingCategories extends React.Component {
         }, () => {
             CategoriesService.getTrendingCategories().then((response) => {
                 this.setState({
-                    poll: response.item || [],
+                    poll: Object.values(response.item) || [],
                     isLoading: false
                 })
             })
