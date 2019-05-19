@@ -15,6 +15,7 @@ import { Messages } from '../../user/messages/Messages';
 import { NewMessage } from './../../user/messages/NewMessage';
 import { TrendingCategories } from '../../content/categories/trending-categories/TrendingCategories';
 import { AddCategory } from './../../content/categories/add-category/AddCaregory';
+import CreatePost from '../../content/posts/create-topic/CreatePost';
 
 export class Main extends React.Component {
 
@@ -38,6 +39,8 @@ export class Main extends React.Component {
                             <ProtectedRoute exact path="/categories-list" component={CategoriesList} />
                             <ProtectedRoute exact path="/add-category" component={AddCategory} />
                             <ProtectedRoute exact path="/add-category/:id" component={AddCategory} />
+
+                            <ProtectedRoute exact path="/create-topic" component={CreatePost} />
 
 
                             <Redirect from="/" to="/home" />
