@@ -3,6 +3,7 @@ import MessagesService from '../../../core/services/messages.service';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './Messages.scss';
+import BaseService from '../../../core/services/base-api.service';
 
 export class NewMessage extends React.Component {
 
@@ -38,7 +39,10 @@ export class NewMessage extends React.Component {
             if (response.data.message) {
                 this.setState({ errors: response.data.message });
             } else {
-                let message = this.state;
+                if(response.data.item.id === BaseService.getLoggedUserId()) {
+                    this.setState({ errors: "You can't send messages to your self." });
+                } else {
+                    let message = this.state;
                 message['receiverId'] = response.data.item.id;
                 MessagesService.saveMessage(message).then((response) => {
                     if (response.data.message) {
@@ -47,6 +51,8 @@ export class NewMessage extends React.Component {
                         this.setState({ showConfirmationMessage: true });
                     }
                 });
+                }
+                
             }
         });
     }
@@ -59,7 +65,7 @@ export class NewMessage extends React.Component {
                 <div hidden={!this.state.showConfirmationMessage} className="text-center">
                         <span className="text-success">The message was send successfully.</span>
                     </div>
-                <form onSubmit={this.onSubmit.bind(this)}>
+                <form onSubmit={this.onSubmit.bind(this)} hidden={this.state.showConfirmationMessage}>
                     <div className="row">
                         <div className="col-4 mt-3">
                             <input type="text" name="receiverName" id="receiverName" placeholder="To" onChange={this.onChange.bind(this)} required />

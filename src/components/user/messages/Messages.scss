@@ -14,7 +14,7 @@
     }
 }
 
-.faIcon{
+.faIcon {
     margin: 2px;
     padding: 5px;
     cursor: pointer;
@@ -40,5 +40,62 @@
     color:red;
     &:hover {
         background: red;
+    }
+}
+
+.message-container {
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-top: none;
+}
+
+.messages-header {
+    padding: 10px;
+    font-weight: bold;
+}
+
+.user-message {
+    .short-message-content {
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .message-details {
+        padding: 5px;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            cursor: pointer;
+            background: #dbdfe2;
+        }
+    }
+    .message-content {
+        opacity: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+    }
+}
+
+.selected-message {
+    .message-details {
+        color: white;
+        background: #29363D;
+        &:hover {
+            cursor: pointer;
+            background: #29363D;
+        }
+    }
+
+    .message-content {
+        opacity: 1;
+        padding: 25px;
+        max-height: 200px;
+        background-color: #e4e5e6;
+        transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
     }
 }

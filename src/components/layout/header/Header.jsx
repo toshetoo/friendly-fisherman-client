@@ -22,8 +22,12 @@ export class Header extends React.Component {
 
     componentDidMount() {
         const isLoggedIn = this.props.isLoggedIn;
-
         if (isLoggedIn) {
+            
+        MessagesService.getNewMessagesCount().then((response) => {
+            this.setState({ numberOfMessages: response.data.numberOfNewMessages })
+        })
+
             this.stateInterval = setInterval(() => {
                 MessagesService.getNewMessagesCount().then((response) => {
                     this.setState({ numberOfMessages: response.data.numberOfNewMessages })

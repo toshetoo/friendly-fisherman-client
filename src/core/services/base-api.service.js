@@ -66,7 +66,7 @@ export default class BaseService {
     }
 
     static handleError(error) {
-        if (error.response.status === 401) {
+        if (error.response && error.response.status === 401) {
             sessionStorage.removeItem('token');
             history.push('/login');
         }
