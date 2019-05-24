@@ -13,6 +13,13 @@ export class ThreadDetails extends React.Component {
         this.props.onDislikeClicked(this.props.thread.id);
     }
 
+    getLikeType(type) {
+        if (!this.props.thread.userLike)
+            return false;
+
+        return this.props.thread.userLike.isLiked === type;
+    }
+
     render() {
 
         let { authorImageUrl } = this.props.thread;
@@ -46,10 +53,10 @@ export class ThreadDetails extends React.Component {
                         <div className="row">
                             <div className="offset-2 col-10 postfooter">
                                 <div className="likeblock">
-                                        <span className="up mr-2">
+                                        <span className={ "mr-2 " + (this.getLikeType(1) ? "up" : "") }>
                                             <FontAwesomeIcon icon={faThumbsUp} className="cursor-pointer" onClick={this.onLikeClicked.bind(this)}/> {this.props.thread.likes}
                                         </span>
-                                        <span className="down ml-2 mr-2">
+                                        <span className={ "ml-2 mr-2 " + (this.getLikeType(0) ? "down" : "")}>
                                             <FontAwesomeIcon icon={faThumbsDown} className="cursor-pointer" onClick={this.onDislikeClicked.bind(this)}/> {this.props.thread.dislikes}
                                             </span>
                                 </div>

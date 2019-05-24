@@ -5,7 +5,8 @@ export default class PostsService {
   
     static getById(id) {
     return new Promise((resolve, reject) => {
-      BaseService.get(API_URL + '/Threads/GetById/' + id).then((data) => {
+      const url = `/Threads/GetById/${id}?userId=${BaseService.getLoggedUserId()}`;
+      BaseService.get(API_URL + url).then((data) => {
         resolve(data.data);
       }).catch(BaseService.handleError);
     });

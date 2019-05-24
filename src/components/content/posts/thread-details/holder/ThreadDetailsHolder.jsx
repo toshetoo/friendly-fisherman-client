@@ -41,10 +41,8 @@ export class ThreadDetailsHolder extends React.Component {
             isLiked: 1
         };
 
-        PostsService.likeReply(data).then(() => {
-            this.setState({
-
-            })
+        PostsService.likeReply(data).then((resp) => {
+            this.updateLikes(id, resp);
         });
     }
 
@@ -55,10 +53,20 @@ export class ThreadDetailsHolder extends React.Component {
             isLiked: 0
         };
 
-        PostsService.likeReply(data).then(() => {
-            this.setState({
-                
-            })
+        PostsService.likeReply(data).then((resp) => {
+            this.updateLikes(id, resp);
+        });
+    }
+    
+    updateLikes(id, resp) {
+        const thread = this.state.thread;
+        const replies = this.state.replies;
+        const curr = thread.id === id ? thread : replies.find(r => r.id === id);
+        curr.likes = resp.data.item.likes[1];
+        curr.dislikes = resp.data.item.likes[0];
+        curr.userLike = resp.data.item.userLike;
+        this.setState({
+            thread, replies
         });
     }
 
