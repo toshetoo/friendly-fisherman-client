@@ -2,6 +2,7 @@ import React from 'react';
 import { ThreadDetails } from './../single/ThreadDetails';
 import PostsService from '../../../../../core/services/posts.service';
 import BaseService from './../../../../../core/services/base-api.service';
+import CreateReply from './../../create-reply/CreateReply';
 
 export class ThreadDetailsHolder extends React.Component {
     constructor(props) {
@@ -9,19 +10,25 @@ export class ThreadDetailsHolder extends React.Component {
 
         this.state = {
             thread: {},
-            replies: []
+            replies: [],
+            showReplyForm: false
         };
     }
 
     componentDidMount() {
         if (this.props.match.params.id) { 
-            PostsService.getById(this.props.match.params.id).then((response) => {
-                const { replies, ...thread } = response.item;
-                this.setState({
-                     thread, replies: replies || []
-                }, () => this.markThreadAsSeen());
-            });
+            this.getThread();
         }       
+    }
+
+    getThread = () => {
+        PostsService.getById(this.props.match.params.id).then((response) => {
+            const { replies, ...thread } = response.item;
+            this.setState({
+                 thread, replies: replies || [],
+                 showReplyForm: false
+            }, () => this.markThreadAsSeen());
+        });
     }
 
     markThreadAsSeen() {
@@ -57,6 +64,24 @@ export class ThreadDetailsHolder extends React.Component {
             this.updateLikes(id, resp);
         });
     }
+
+    onReplyClicked = () => {
+        this.setState({
+            showReplyForm: true
+        });
+    }
+
+    onDeleteReplyClicked = (id) => {
+        PostsService.deleteReply(id).then(() => {
+            this.getThread();
+        });
+    }
+
+    onDeleteThreadClicked = (id) => {
+        PostsService.delete(id).then(() => {
+            this.getThread();
+        });
+    }
     
     updateLikes(id, resp) {
         const thread = this.state.thread;
@@ -74,13 +99,22 @@ export class ThreadDetailsHolder extends React.Component {
         let { thread, replies } = this.state;
 
         replies = replies.map(r => {
-            return <ThreadDetails key={r.id} thread={r} onDislikeClicked={this.onDislikeClicked} onLikeClicked={this.onLikeClicked}/>
+            return <ThreadDetails key={r.id} thread={r} o
+            nDislikeClicked={this.onDislikeClicked} 
+            onLikeClicked={this.onLikeClicked}
+            onDeleteClicked={this.onDeleteReplyClicked}/>
         });
 
 
         return (
             <div className="thread-details-holder">
-                <ThreadDetails thread={thread} onDislikeClicked={this.onDislikeClicked} onLikeClicked={this.onLikeClicked}/>
+                <ThreadDetails thread={thread} 
+                onDislikeClicked={this.onDislikeClicked} 
+                onLikeClicked={this.onLikeClicked} 
+                onReplyClicked={this.onReplyClicked}
+                shouldHaveReply={true}
+                onDeleteClicked={this.onDeleteThreadClicked}/>
+                {this.state.showReplyForm ? <CreateReply threadId={this.state.thread.id} refresh={this.getThread} /> : ''}
                 {replies}
             </div>
         );

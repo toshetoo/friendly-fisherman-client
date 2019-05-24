@@ -17,7 +17,7 @@ export default class CreatePost extends React.Component {
         this.state = {
             title: '',
             categoryId: '',
-            subtitle: '',
+            content: '',
             createdOn: '',
             authorId: BaseService.getLoggedUserId(),
             categories: []
@@ -89,7 +89,7 @@ export default class CreatePost extends React.Component {
                                 onChange={(event, editor) => {
                                     const data = editor.getData();
                                     this.setState({
-                                        subtitle: data
+                                        content: data
                                     });
                                 }}
                             />
