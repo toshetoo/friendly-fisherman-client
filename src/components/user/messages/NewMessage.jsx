@@ -65,7 +65,7 @@ export class NewMessage extends React.Component {
                 <div hidden={!this.state.showConfirmationMessage} className="text-center">
                         <span className="text-success">The message was send successfully.</span>
                     </div>
-                <form onSubmit={this.onSubmit.bind(this)} hidden={this.state.showConfirmationMessage}>
+                <form onSubmit={this.onSubmit.bind(this)} hidden={this.state.showConfirmationMessage} className="messages-form">
                     <div className="row">
                         <div className="col-4 mt-3">
                             <input type="text" name="receiverName" id="receiverName" placeholder="To" onChange={this.onChange.bind(this)} required />
@@ -82,7 +82,7 @@ export class NewMessage extends React.Component {
                     <div className="row">
                         <div className="col-12 mt-3">
                             <Button type="submit" color="primary">Send message</Button>
-                            <Button type="button" className="cancel-button"><Link to="/messages">Cancel</Link></Button>
+                            <Button type="button" className="cancel-button ml-2"><Link to="/messages">Cancel</Link></Button>
                         </div>
                     </div>
                 </form>
