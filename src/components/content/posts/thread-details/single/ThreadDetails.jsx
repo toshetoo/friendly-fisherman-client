@@ -54,10 +54,10 @@ export class ThreadDetails extends React.Component {
                             <div className="offset-2 col-10 postfooter">
                                 <div className="likeblock">
                                         <span className={ "mr-2 " + (this.getLikeType(1) ? "up" : "") }>
-                                            <FontAwesomeIcon icon={faThumbsUp} className="cursor-pointer" onClick={this.onLikeClicked.bind(this)}/> {this.props.thread.likes}
+                                            <FontAwesomeIcon icon={faThumbsUp} className="cursor-pointer" onClick={this.onLikeClicked.bind(this)}/> {this.props.thread.likes ? this.props.thread.likes : 0}
                                         </span>
                                         <span className={ "ml-2 mr-2 " + (this.getLikeType(0) ? "down" : "")}>
-                                            <FontAwesomeIcon icon={faThumbsDown} className="cursor-pointer" onClick={this.onDislikeClicked.bind(this)}/> {this.props.thread.dislikes}
+                                            <FontAwesomeIcon icon={faThumbsDown} className="cursor-pointer" onClick={this.onDislikeClicked.bind(this)}/> {this.props.thread.dislikes ? this.props.thread.dislikes : 0}
                                             </span>
                                 </div>
                                 <div className="prev">                                        
