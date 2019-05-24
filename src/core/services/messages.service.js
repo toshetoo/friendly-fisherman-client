@@ -64,6 +64,7 @@ export default class MessagesService {
     }
 
     static markAsRead(message) {
+        message.seen = true;
         return new Promise((resolve, reject) => {
             BaseService.post(API_URL + '/PersonalMessages/MarkAsRead', message).then((data) => {
                 resolve(data);
@@ -73,7 +74,7 @@ export default class MessagesService {
 
     static delete(id) {
         return new Promise((resolve, reject) => {
-            BaseService.delete(API_URL + '/PersonalMessages/Delete/' + id).then((data) => {
+            BaseService.delete(API_URL + `/PersonalMessages/Delete/${id}/${BaseService.getLoggedUserId()}`).then((data) => {
                 resolve(data);
             }).catch(BaseService.handleError);
         });
