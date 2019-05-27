@@ -150,7 +150,7 @@ export class Messages extends React.Component {
         }
 
         return (
-            <div>
+            <div className="list-holder">
                 <Button className="send-message"><Link to="/new-message">Send message</Link></Button>
 
                 <ul className="nav nav-tabs">

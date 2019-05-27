@@ -31,7 +31,7 @@ export class Post extends React.Component {
                                     <Link to={`/thread/${this.props.post.id}`}>{this.props.post.title}</Link>
                                 </h5>
                                 <p className="description text-muted"
-                                    dangerouslySetInnerHTML={{ __html: this.props.post.subtitle }}>
+                                    dangerouslySetInnerHTML={{ __html: this.props.post.content }}>
                                 </p>
                             </div>
                             <div className="col-2 pl-0">
