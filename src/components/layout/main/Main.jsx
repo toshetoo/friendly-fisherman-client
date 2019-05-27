@@ -41,6 +41,7 @@ export class Main extends React.Component {
                             <ProtectedRoute exact path="/add-category/:id" component={AddCategory} />
 
                             <ProtectedRoute exact path="/create-topic" component={CreatePost} />
+                            <ProtectedRoute exact path="/events" component={CreatePost} />
 
 
                             <Redirect from="/" to="/home" />
