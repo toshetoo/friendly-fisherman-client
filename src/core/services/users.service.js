@@ -12,6 +12,10 @@ export default class UsersService {
     return jwt_decode(localStorage.getItem('token')).ID;
   }
 
+  static getLoggedUserObject() {
+    return jwt_decode(localStorage.getItem('token'));
+  }
+
   static logout() {
     return BaseService.logout();
   }

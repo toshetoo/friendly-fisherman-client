@@ -14,20 +14,20 @@ export default class AdminModule extends React.Component {
         return (
             <div className="admin-module container">
                 <div className="row">
-                    <div className="col-12 col-sm-8">
+                    <div className="col-12 col-sm-10">
                         <Switch>
-                            <ProtectedRoute exact path="/admin/users-list" component={UsersList} />      
-                            <ProtectedRoute exact path="/admin/users/profile/:id" component={UserAdminProfile} /> 
+                            <ProtectedRoute exact path="/admin/users-list" component={UsersList} requireAdmin={true} />      
+                            <ProtectedRoute exact path="/admin/users/profile/:id" component={UserAdminProfile} requireAdmin={true} /> 
                             
-                            <ProtectedRoute exact path="/admin/polls-list" component={PollsList} />
-                            <ProtectedRoute exact path="/admin/add-poll" component={AddPoll} />
-                            <ProtectedRoute exact path="/admin/add-poll/:id" component={AddPoll} />
-                            <ProtectedRoute exact path="/admin/categories-list" component={CategoriesList} />
-                            <ProtectedRoute exact path="/admin/add-category" component={AddCategory} />
-                            <ProtectedRoute exact path="/admin/add-category/:id" component={AddCategory} />                 
+                            <ProtectedRoute exact path="/admin/polls-list" component={PollsList} requireAdmin={true} />
+                            <ProtectedRoute exact path="/admin/add-poll" component={AddPoll} requireAdmin={true} />
+                            <ProtectedRoute exact path="/admin/add-poll/:id" component={AddPoll} requireAdmin={true} />
+                            <ProtectedRoute exact path="/admin/categories-list" component={CategoriesList} requireAdmin={true} />
+                            <ProtectedRoute exact path="/admin/add-category" component={AddCategory} requireAdmin={true} />
+                            <ProtectedRoute exact path="/admin/add-category/:id" component={AddCategory} requireAdmin={true} />                 
                         </Switch>
                     </div>
-                    <div className="col-12 col-sm-4">
+                    <div className="col-12 col-sm-2">
                         <AdminSidebar />
                     </div>
                 </div>                

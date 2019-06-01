@@ -21,8 +21,6 @@ export class CategoriesList extends React.Component {
             this.setState({
                 categories: response.data.items
             });
-
-            console.log(this.state.categories);
         });
     }
 

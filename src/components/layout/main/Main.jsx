@@ -1,6 +1,5 @@
 import React from 'react';
 import { PostsHolder } from '../../content/posts/list/PostsHolder';
-import { CategoriesList } from './../../content/categories/list/CategoriesList';
 import { ActiveThreads } from '../../content/posts/active-threads/ActiveThreads';
 import { UserProfile } from '../../user/profile/UserProfile';
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -9,12 +8,9 @@ import { ConfirmAccount } from './../../auth/confirm/ConfirmAccount';
 import ProtectedRoute from './../../../core/routes/ProtectedRoute';
 import { ResetPassword } from '../../auth/reset-password/ResetPassword';
 import { PollOfTheWeek } from './../../content/polls/poll-of-the-week/PollOfTheWeek';
-import { PollsList } from './../../content/polls/polls-list/PollsList';
-import { AddPoll } from './../../content/polls/add-poll/AddPoll';
 import { Messages } from '../../user/messages/Messages';
 import { NewMessage } from './../../user/messages/NewMessage';
 import { TrendingCategories } from '../../content/categories/trending-categories/TrendingCategories';
-import { AddCategory } from './../../content/categories/add-category/AddCaregory';
 import CreatePost from '../../content/posts/create-topic/CreatePost';
 
 export class Main extends React.Component {
