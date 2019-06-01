@@ -39,7 +39,7 @@ export class TrendingCategories extends React.Component {
     }
 
     onList() {
-        history.push('/categories-list');
+        history.push('/admin/categories-list');
     }
 
     render() {

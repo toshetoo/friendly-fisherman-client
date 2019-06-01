@@ -72,7 +72,7 @@ export class AddPoll extends React.Component {
                     errors: response.data.error
                 });
             } else {
-                history.push('/polls-list');
+                history.push('/admin/polls-list');
             }
         });
     }

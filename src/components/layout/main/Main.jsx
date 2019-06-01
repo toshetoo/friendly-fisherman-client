@@ -33,12 +33,6 @@ export class Main extends React.Component {
                             <ProtectedRoute exact path="/messages/:selectedTab?" component={Messages} />
                             <ProtectedRoute exact path="/new-message" component={NewMessage} />
                             <ProtectedRoute exact path="/profile" component={UserProfile} />
-                            <ProtectedRoute exact path="/polls-list" component={PollsList} />
-                            <ProtectedRoute exact path="/add-poll" component={AddPoll} />
-                            <ProtectedRoute exact path="/add-poll/:id" component={AddPoll} />
-                            <ProtectedRoute exact path="/categories-list" component={CategoriesList} />
-                            <ProtectedRoute exact path="/add-category" component={AddCategory} />
-                            <ProtectedRoute exact path="/add-category/:id" component={AddCategory} />
 
                             <ProtectedRoute exact path="/create-topic" component={CreatePost} />
 

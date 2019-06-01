@@ -27,11 +27,11 @@ export class CategoriesList extends React.Component {
     }
 
     onAddCategory() {
-        history.push('/add-category');
+        history.push('/admin/add-category');
     }
 
     onEditCategory(id) {
-        history.push('/add-category/' + id);
+        history.push('/admin/add-category/' + id);
     }
 
     onDeleteCategory(categoryId, index) {
