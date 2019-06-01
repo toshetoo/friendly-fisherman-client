@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown, faReply, faClock } from '@fortawesome/free-solid-svg-icons';
 import { UncontrolledTooltip } from 'reactstrap';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import UsersService from '../../../../../core/services/users.service';
 
 export class ThreadDetails extends React.Component {
 
@@ -37,6 +38,8 @@ export class ThreadDetails extends React.Component {
             authorImageUrl = '/images/placeholder-face-big.png';
         }
 
+        const canSeeDeleteBtn = UsersService.isCurrentUserAdmin() || UsersService.getLoggedUserId() === this.props.authorId;
+
         return (
             <div className="thread-details-single">
                 <div className="row">
@@ -58,14 +61,19 @@ export class ThreadDetails extends React.Component {
                                                 <span>{this.props.thread.title}</span>
                                             </h5>                                    
                                         </div>
-                                        <div className="col-4 text-right">
-                                            <span className="mr-2">
-                                                <FontAwesomeIcon icon={faTrash} id={"delete-" + this.props.thread.id} className="cursor-pointer text-danger" onClick={this.onDeleteClicked.bind(this)} />
-                                                <UncontrolledTooltip placement="top" target={"delete-" + this.props.thread.id}>
-                                                    Delete
-                                                </UncontrolledTooltip>
-                                            </span>
-                                        </div>
+                                        {
+                                            canSeeDeleteBtn 
+                                            ? <div className="col-4 text-right">
+                                                <span className="mr-2">
+                                                    <FontAwesomeIcon icon={faTrash} id={"delete-" + this.props.thread.id} className="cursor-pointer text-danger" onClick={this.onDeleteClicked.bind(this)} />
+                                                    <UncontrolledTooltip placement="top" target={"delete-" + this.props.thread.id}>
+                                                        Delete
+                                                    </UncontrolledTooltip>
+                                                </span>
+                                            </div>
+                                            : ''
+                                        }
+                                        
                                     </div>
                                     <div className="row">
                                         <div className="col-12">
