@@ -16,6 +16,10 @@ export default class UsersService {
     return jwt_decode(localStorage.getItem('token'));
   }
 
+  static isCurrentUserAdmin() {
+    return UsersService.getLoggedUserObject().role === 'Admin';
+  }
+
   static logout() {
     return BaseService.logout();
   }

@@ -10,7 +10,7 @@ export default class ProtectedRoute extends React.Component {
 
         console.log(UsersService.getLoggedUserObject())
 
-        if(UsersService.getLoggedUser() && ( !requireAdmin ||  (requireAdmin === (UsersService.getLoggedUserObject().role === 'Admin')))) {
+        if(UsersService.getLoggedUser() && ( !requireAdmin ||  (requireAdmin === (UsersService.isCurrentUserAdmin())))) {
             return <this.props.component {...this.props} />
         } else {
             if (requireAdmin && UsersService.getLoggedUser()) {
