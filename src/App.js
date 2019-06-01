@@ -12,6 +12,7 @@ import { Router } from 'react-router-dom';
 import history from './core/history/History';
 import UsersService from './core/services/users.service';
 import { ForgottenPassword } from './components/auth/forgotten-password/ForgottenPassword';
+import AdminModule from './components/admin/AdminModule';
 
 class App extends Component {
 
@@ -40,6 +41,7 @@ class App extends Component {
             }} />
             <Route path="/register" component={Register} />
             <Route path="/forgotten-password" component={ForgottenPassword} />
+            <Route path="/admin" component={AdminModule} />
             <Route path="/" component={Main} />
           </Switch>
           <Footer />

@@ -29,7 +29,7 @@ export default class UsersService {
 
   static getAll() {
     return new Promise((resolve, reject) => {
-      BaseService.get(API_URL + '/users').then((data) => {
+      BaseService.get(API_URL + '/users/GetAllUsers').then((data) => {
         resolve(data);
       }).catch(BaseService.handleError);
     });
