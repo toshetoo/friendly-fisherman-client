@@ -8,7 +8,9 @@ export default class ProtectedRoute extends React.Component {
         let { requireAdmin } = this.props;
         if (requireAdmin === undefined) requireAdmin = false;
 
-        if(UsersService.getLoggedUser() && ( !requireAdmin ||  requireAdmin === UsersService.getLoggedUserObject().isAdmin)) {
+        console.log(UsersService.getLoggedUserObject())
+
+        if(UsersService.getLoggedUser() && ( !requireAdmin ||  (requireAdmin === (UsersService.getLoggedUserObject().role === 'Admin')))) {
             return <this.props.component {...this.props} />
         } else {
             if (requireAdmin && UsersService.getLoggedUser()) {
