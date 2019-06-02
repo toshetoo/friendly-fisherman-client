@@ -11,4 +11,13 @@ export default class ReportsService {
             }).catch(BaseService.handleError);
           });
     }
+
+    static getPostsPerDayReport(data) {
+        return new Promise((resolve, reject) => {
+            const url = `/Reports/PostsPerDayReport?Limit=${data.limit}&StartDate=${data.startDate}&EndDate=${data.endDate}`;
+            BaseService.get(API_URL + url).then((data) => {
+              resolve(data.data);
+            }).catch(BaseService.handleError);
+          });
+    }
 }
