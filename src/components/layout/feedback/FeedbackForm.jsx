@@ -1,16 +1,12 @@
 import React from 'react';
-import './CreatePost.scss';
+import './FeedbackForm.scss';
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import BaseService from '../../../../core/services/base-api.service';
-import PostsService from '../../../../core/services/posts.service';
 import * as moment from 'moment';
-import history from './../../../../core/history/History';
-import CategoriesService from './../../../../core/services/categories.service';
-import CustomSelect from './../../../../core/shared-components/CustomSelect';
-import UploadAdapter from './../../../../core/shared-components/upload-adapter/UploadAdapter';
+import BaseService from './../../../core/services/base-api.service';
+import UploadAdapter from './../../../core/shared-components/upload-adapter/UploadAdapter';
 
-export default class CreatePost extends React.Component {
+export default class FeedbackForm extends React.Component {
 
     constructor(props) {
         super(props);
@@ -25,29 +21,10 @@ export default class CreatePost extends React.Component {
         };
     }
 
-    componentDidMount() {
-        CategoriesService.getAll().then((response) => {
-            this.setState({
-                categories: response.data.items.map(cat => {
-                    return {
-                        value: cat.id,
-                        label: cat.name
-                    }
-                })
-            });
-        });
-    }
-
     onChange(event) {
         event.persist();
         this.setState({
             [event.target.name]: event.target.value
-        });
-    }
-
-    handleSelectChange = (selectedOption) => {
-        this.setState({
-            categoryId: selectedOption.value
         });
     }
 
@@ -57,27 +34,16 @@ export default class CreatePost extends React.Component {
         this.setState({
             createdOn: moment().format('YYYY-MM-DD HH:mm:ss')
         }, () => {
-            const {categories, ...post} = this.state;
-            PostsService.save(post).then((response) => {
-                if (response.data.error) {
-                    this.setState({
-                        errors: response.data.error
-                    });
-                } else {
-                    history.push('/home');
-                }
-            });
+            // send form here
         });       
     }
 
     render() {
-        const { selectedOption, categories } = this.state;
-
         return (
             <div className="form-holder">
                 <div className="row mb-3">
                     <div className="col-12 text-center">
-                        <h3>Create topic</h3>
+                        <h3>Send Feedback</h3>
                     </div>
                 </div>
                
@@ -108,17 +74,8 @@ export default class CreatePost extends React.Component {
                         </div>
                     </div>
                     <div className="row mt-2">
-                        <div className="col-12">
-                            <CustomSelect
-                                value={selectedOption}
-                                onSelectChange={this.handleSelectChange}
-                                options={categories}
-                            />
-                        </div>
-                    </div>
-                    <div className="row mt-2">
                         <div className="col-12 text-right">
-                            <button className="btn btn-primary">Save</button>
+                            <button className="btn btn-primary">Send</button>
                         </div>
                     </div>
                 </form>

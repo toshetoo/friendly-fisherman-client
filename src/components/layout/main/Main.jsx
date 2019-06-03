@@ -14,6 +14,7 @@ import { TrendingCategories } from '../../content/categories/trending-categories
 import CreatePost from '../../content/posts/create-topic/CreatePost';
 import { NewsList } from '../../content/news/list/NewsList';
 import NewsDetails from './../../content/news/news-details/NewsDetails';
+import FeedbackForm from './../feedback/FeedbackForm';
 
 export class Main extends React.Component {
 
@@ -35,6 +36,7 @@ export class Main extends React.Component {
                             <ProtectedRoute exact path="/create-topic" component={CreatePost} />
 
                             <ProtectedRoute exact path="/news/:id" component={NewsDetails} />
+                            <ProtectedRoute exact path="/feedback" component={FeedbackForm} />
 
 
                             <Redirect from="/" to="/home" />
