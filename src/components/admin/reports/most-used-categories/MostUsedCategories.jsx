@@ -38,7 +38,7 @@ export default class MostUsedCategories extends React.Component {
             for (const key in resp.item.items) {
                 if (resp.item.items.hasOwnProperty(key)) {
                     const element = resp.item.items[key];
-                    data.push({ name: key, count: element })
+                    data.push({ name: key, threads: element })
                 }
             }
             data.sort((a, b) => new Date(a.name) - new Date(b.name));
@@ -116,10 +116,10 @@ export default class MostUsedCategories extends React.Component {
                         >
                             <CartesianGrid strokeDasharray="1 1" />
                             <XAxis dataKey="name" />
-                            <YAxis />
+                            <YAxis  domain={[dataMin => 0, dataMax => (dataMax * 2)]} type="number" interval="preserveStartEnd"/>
                             <Tooltip />
                             <Legend />
-                            <Bar dataKey="count" fill="#8884d8" />
+                            <Bar dataKey="threads" fill="#82ca9d" />
                         </BarChart>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ export default class PostsPerDay extends React.Component {
 
         this.timeout = null;
         this.state = {
-            limit: 0,
+            limit: 5,
             startDate: moment().subtract(7, 'd').format('YYYY-MM-DD'),
             endDate: moment().format('YYYY-MM-DD'),
             reportData: null
@@ -111,7 +111,7 @@ export default class PostsPerDay extends React.Component {
                             <YAxis domain={[dataMin => 0, dataMax => (dataMax * 2)]} type="number" interval="preserveStartEnd" />
                             <Tooltip />
                             <Legend />
-                            <Line type="monotone" dataKey="count" stroke="#8884d8" activeDot={{ r: 4 }} />
+                            <Line type="monotone" dataKey="count" stroke="#007bff" activeDot={{ r: 4 }} />
                         </LineChart>
                     </div>
                 </div>

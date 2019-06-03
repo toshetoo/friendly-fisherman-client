@@ -20,7 +20,7 @@ export default class ReportsService {
             }).catch(BaseService.handleError);
           });
     }
-
+    
     static getMostUsedCategoriesReport(data) {
         return new Promise((resolve, reject) => {
             const url = `/Reports/MostUsedCategories?Limit=${data.limit}&StartDate=${data.startDate}&EndDate=${data.endDate}`;
@@ -29,4 +29,13 @@ export default class ReportsService {
             }).catch(BaseService.handleError);
           });
     }
+
+    static getMostActiveThreadsReport(data) {
+      return new Promise((resolve, reject) => {
+          const url = `/Reports/MostActiveThreadsReport?Limit=${data.limit}&StartDate=${data.startDate}&EndDate=${data.endDate}`;
+          BaseService.get(API_URL + url).then((data) => {
+            resolve(data.data);
+          }).catch(BaseService.handleError);
+        });
+  }
 }

@@ -1,12 +1,12 @@
 import React from 'react';
-import './ThreadsPerDay.scss';
+import './MostActiveThreads.scss';
 import ReportsService from './../../../../core/services/reports.service';
-import {
-    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-} from 'recharts';
 import * as moment from 'moment';
+import {
+    BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+} from 'recharts';
 
-export default class ThreadsPerDay extends React.Component {
+export default class MostActiveThreads extends React.Component {
     constructor(props) {
         super(props);
 
@@ -31,14 +31,12 @@ export default class ThreadsPerDay extends React.Component {
     }
 
     getReportData() {
-        ReportsService.getThreadsPerDayReport(this.state).then((resp) => {
+        ReportsService.getMostActiveThreadsReport(this.state).then((resp) => {
+            console.log(resp);
             const data = [];
 
-            for (const key in resp.item.items) {
-                if (resp.item.items.hasOwnProperty(key)) {
-                    const element = resp.item.items[key];
-                    data.push({ name: moment(key).format('YYYY-MM-DD'), count: element })
-                }
+            for (const element of resp.item.items) {
+                    data.push({ name: element.title, answers: element.answersCount })
             }
             data.sort((a, b) => new Date(a.name) - new Date(b.name));
             this.setState({
@@ -54,10 +52,10 @@ export default class ThreadsPerDay extends React.Component {
 
     render() {
         return (
-            <div className="threads-per-day">
+            <div className="most-active-threads">
                 <div className="row header-row">
                     <div className="col-12">
-                        <h4>Threads Per day report</h4>
+                        <h4>Most Active Threads report</h4>
                     </div>
                 </div>
                 <hr />
@@ -105,14 +103,21 @@ export default class ThreadsPerDay extends React.Component {
                         </div>
                     </div>
                     <div className="col-9">
-                        <LineChart width={600} height={300} data={this.state.reportData}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
-                            <YAxis domain={[dataMin => 0, dataMax => (dataMax * 2)]} type="number" interval="preserveStartEnd"/>
+                    <BarChart
+                            width={600}
+                            height={300}
+                            data={this.state.reportData}
+                            margin={{
+                                top: 5, right: 30, left: 20, bottom: 5,
+                            }}
+                        >
+                            <CartesianGrid strokeDasharray="1 1" />
+                            <XAxis dataKey="name" />
+                            <YAxis  domain={[dataMin => 0, dataMax => (dataMax * 2)]} type="number" interval="preserveStartEnd"/>
                             <Tooltip />
                             <Legend />
-                            <Line type="monotone" dataKey="count" stroke="#007bff" activeDot={{ r: 4 }} />
-                        </LineChart>
+                            <Bar dataKey="answers" fill="#82ca9d" />
+                        </BarChart>
                     </div>
                 </div>
 
