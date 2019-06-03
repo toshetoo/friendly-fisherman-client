@@ -57,9 +57,13 @@ export default class BaseService {
     }
 
     static uploadFile(url, file) {
-        const data = new FormData();
-        data.append('file', file);
+        // const data = new FormData();
+        // data.append('file', file);
 
+        const data = {
+            id: 'fdsafsd',
+            imageSource: file
+        };
         let config = this.getConfig();
 
         return axios.post(url, data, config);

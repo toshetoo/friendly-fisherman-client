@@ -3,6 +3,7 @@ import { ThreadDetails } from './../single/ThreadDetails';
 import PostsService from '../../../../../core/services/posts.service';
 import BaseService from './../../../../../core/services/base-api.service';
 import CreateReply from './../../create-reply/CreateReply';
+import history from '../../../../../core/history/History';
 
 export class ThreadDetailsHolder extends React.Component {
     constructor(props) {
@@ -79,7 +80,7 @@ export class ThreadDetailsHolder extends React.Component {
 
     onDeleteThreadClicked = (id) => {
         PostsService.delete(id).then(() => {
-            this.getThread();
+            history.push('/home');
         });
     }
     
