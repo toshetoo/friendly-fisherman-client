@@ -13,6 +13,7 @@ import { NewMessage } from './../../user/messages/NewMessage';
 import { TrendingCategories } from '../../content/categories/trending-categories/TrendingCategories';
 import CreatePost from '../../content/posts/create-topic/CreatePost';
 import { NewsList } from '../../content/news/list/NewsList';
+import NewsDetails from './../../content/news/news-details/NewsDetails';
 
 export class Main extends React.Component {
 
@@ -32,6 +33,8 @@ export class Main extends React.Component {
                             <ProtectedRoute exact path="/profile" component={UserProfile} />
 
                             <ProtectedRoute exact path="/create-topic" component={CreatePost} />
+
+                            <ProtectedRoute exact path="/news/:id" component={NewsDetails} />
 
 
                             <Redirect from="/" to="/home" />
