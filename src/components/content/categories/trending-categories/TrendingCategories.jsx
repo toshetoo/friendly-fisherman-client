@@ -70,7 +70,7 @@ export class TrendingCategories extends React.Component {
                     </span>
                     {
                         UsersService.isCurrentUserAdmin()
-                        ?  <span className="cursor-pointer list-btn" onClick={this.onList.bind(this)}>List</span>
+                        ?  <span className="cursor-pointer list-btn" onClick={this.onList.bind(this)}>View all</span>
                         : ''
                     }
                 </div> 

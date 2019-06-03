@@ -12,6 +12,7 @@ import { Messages } from '../../user/messages/Messages';
 import { NewMessage } from './../../user/messages/NewMessage';
 import { TrendingCategories } from '../../content/categories/trending-categories/TrendingCategories';
 import CreatePost from '../../content/posts/create-topic/CreatePost';
+import { NewsList } from '../../content/news/list/NewsList';
 
 export class Main extends React.Component {
 
@@ -36,10 +37,10 @@ export class Main extends React.Component {
                             <Redirect from="/" to="/home" />
                         </Switch>
                     </div>
-                    <div className="col-12 col-sm-4">
+                    <div className="col-12 col-sm-4">                        
+                        <NewsList />
                         <TrendingCategories />
                         <PollOfTheWeek />
-                        <ActiveThreads />
                     </div>
                 </div>
             </div>
