@@ -2,7 +2,7 @@ import React from 'react';
 import './ThreadsPerDay.scss';
 import ReportsService from './../../../../core/services/reports.service';
 import {
-    BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+    LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 import * as moment from 'moment';
 
@@ -105,21 +105,14 @@ export default class ThreadsPerDay extends React.Component {
                         </div>
                     </div>
                     <div className="col-9">
-                        <BarChart
-                            width={600}
-                            height={300}
-                            data={this.state.reportData}
-                            margin={{
-                                top: 5, right: 30, left: 20, bottom: 5,
-                            }}
-                        >
-                            <CartesianGrid strokeDasharray="1 1" />
-                            <XAxis dataKey="name" />
-                            <YAxis />
+                        <LineChart width={600} height={300} data={this.state.reportData}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
+                            <YAxis domain={[dataMin => 0, dataMax => (dataMax * 2)]} type="number" interval="preserveStartEnd"/>
                             <Tooltip />
                             <Legend />
-                            <Bar dataKey="count" fill="#8884d8" />
-                        </BarChart>
+                            <Line type="monotone" dataKey="count" stroke="#8884d8" activeDot={{ r: 4 }} />
+                        </LineChart>
                     </div>
                 </div>
 
