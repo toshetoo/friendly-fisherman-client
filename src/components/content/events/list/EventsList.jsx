@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Event from '../single/Event';
 import EventService from '../../../../core/services/event.service';
 
 class EventsList extends Component {
@@ -17,26 +18,14 @@ class EventsList extends Component {
     }
 
     render() {
-
-        renderEvent = (event) => {
-            return (
-                <div>
-                    <div>Title</div>
-                    <div>Description</div>
-                    <div>Cover</div>
-                    <div>Event Status</div>
-                    <div>Start Date</div>
-                    <div>End Date</div>
-                </div>
-            )
-        }
-
-        renderEvents = (events) => {
-            return events.map((event) => { return renderEvent(event) });
-        }
+        const events = this.state.events.map(event => {
+            return <Event key={event.id} event={event} />
+        })
 
         return (
-            renderEvents(this.state.events)
+            <div className="events-holder">
+                {events}
+            </div>
         );
     }
 }

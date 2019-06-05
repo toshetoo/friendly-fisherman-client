@@ -99,8 +99,8 @@ export class ThreadDetailsHolder extends React.Component {
         let { thread, replies } = this.state;
 
         replies = replies.map(r => {
-            return <ThreadDetails key={r.id} thread={r} o
-            nDislikeClicked={this.onDislikeClicked} 
+            return <ThreadDetails key={r.id} thread={r} 
+            onDislikeClicked={this.onDislikeClicked} 
             onLikeClicked={this.onLikeClicked}
             onDeleteClicked={this.onDeleteReplyClicked}/>
         });

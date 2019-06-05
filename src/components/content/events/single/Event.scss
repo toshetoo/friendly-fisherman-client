@@ -1,0 +1,61 @@
+.event {
+    background-color: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px #c9cccd;
+    margin-top: 20px;
+    width: 100%;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .date {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        .month {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .day {
+            font-size: 18px;
+        }
+
+        .end-date {
+            padding: 20px;
+            font-size: 12px;
+        }
+    }
+}
+
+.active {
+    color: #1abc9c;
+}
+.pending {
+    color: #ffaf7f;
+}
+.completed {
+    color: #808080;
+}
+
+.event-title {
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.image-cover {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 0 20px 20px;
+    flex-direction: column;
+
+    img {
+        max-width: 300px;
+    }
+}

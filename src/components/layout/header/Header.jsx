@@ -66,7 +66,7 @@ export class Header extends React.Component {
                     <div className="row">
                         <div className="col-2">
                             <div className="logo-holder">
-                                <Link to="/home"><img src="/images/logo.jpg" alt="logo" /></Link>
+                                <Link to="/home"><img src="/images/logo.png" alt="logo" /></Link>
                             </div>
                         </div>
                         <div className="col-8 d-flex justify-content-end align-items-center">
@@ -79,7 +79,7 @@ export class Header extends React.Component {
                                 </InputGroupAddon>
                             </InputGroup>
                             <Link to="/create-topic"><button className="create-topic-btn">Create topic</button></Link>
-                            <Link to="/events"><button className="create-topic-btn">Events</button></Link>
+                            <Link to="/add-event"><button className="create-topic-btn">Add event</button></Link>
                         </div>
                         {isLoggedIn ?
                             <div className="col-2 pl-0 ml-0 d-flex justify-content-end align-items-center">

@@ -11,8 +11,6 @@ export class UserProfile extends React.Component {
             firstName: '',
             lastName: '',
             username: '',
-            password: '',
-            re_password: '',
             email: '',
             id: ''
         };
@@ -47,7 +45,7 @@ export class UserProfile extends React.Component {
                     <div className="row mt-4">
                         <div className="col-2">
                             <div className="profile-image image-holder">
-                                <img src="/placeholder-face-big.png" alt="profile-img" />
+                                <img src="/images/placeholder-face-big.png" alt="profile-img" />
                             </div>
                         </div> 
                         <div className="col-10">
@@ -66,14 +64,6 @@ export class UserProfile extends React.Component {
                                     </div>
                                     <div className="col-6">
                                         <input type="text" name="lastName" id="lastName" placeholder="Last Name" onChange={this.onChange.bind(this)} value={this.state.lastName} required/>
-                                    </div>
-                                </div>
-                                <div className="row mb-2">
-                                    <div className="col-6">
-                                        <input type="password" name="password" id="password" placeholder="Password" onChange={this.onChange.bind(this)} required/>
-                                    </div>
-                                    <div className="col-6">
-                                        <input type="password" name="re_password" id="rePassword" placeholder="Re-type password" onChange={this.onChange.bind(this)} required/>
                                     </div>
                                 </div>
                                 <div className="row">                                    

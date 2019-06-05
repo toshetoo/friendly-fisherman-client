@@ -1,7 +1,7 @@
 import React from 'react';
 import MessagesService from '../../../core/services/messages.service';
 import { Link } from "react-router-dom";
-import { Button, Collapse } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import './Messages.scss';

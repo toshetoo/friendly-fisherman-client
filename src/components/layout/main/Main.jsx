@@ -16,6 +16,9 @@ import { NewMessage } from './../../user/messages/NewMessage';
 import { TrendingCategories } from '../../content/categories/trending-categories/TrendingCategories';
 import { AddCategory } from './../../content/categories/add-category/AddCaregory';
 import CreatePost from '../../content/posts/create-topic/CreatePost';
+import EventsList from '../../content/events/list/EventsList';
+import AddEvent from '../../content/events/add-event/AddEvent';
+import PreviewEvent from '../../content/events/preview-event/PreviewEvent';
 
 export class Main extends React.Component {
 
@@ -41,7 +44,9 @@ export class Main extends React.Component {
                             <ProtectedRoute exact path="/add-category/:id" component={AddCategory} />
 
                             <ProtectedRoute exact path="/create-topic" component={CreatePost} />
-                            <ProtectedRoute exact path="/events" component={CreatePost} />
+                            <ProtectedRoute exact path="/events" component={EventsList} />
+                            <ProtectedRoute exact path="/add-event" component={AddEvent} />
+                            <ProtectedRoute exact path="/preview-event/:id" component={PreviewEvent} />
 
 
                             <Redirect from="/" to="/home" />
