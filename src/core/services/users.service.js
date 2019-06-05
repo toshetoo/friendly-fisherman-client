@@ -12,6 +12,14 @@ export default class UsersService {
     return jwt_decode(localStorage.getItem('token')).ID;
   }
 
+  static getLoggedUserObject() {
+    return jwt_decode(localStorage.getItem('token'));
+  }
+
+  static isCurrentUserAdmin() {
+    return UsersService.getLoggedUserObject().role === 'Admin';
+  }
+
   static logout() {
     return BaseService.logout();
   }
@@ -29,7 +37,7 @@ export default class UsersService {
 
   static getAll() {
     return new Promise((resolve, reject) => {
-      BaseService.get(API_URL + '/users').then((data) => {
+      BaseService.get(API_URL + '/users/GetAllUsers').then((data) => {
         resolve(data);
       }).catch(BaseService.handleError);
     });

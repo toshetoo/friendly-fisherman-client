@@ -6,6 +6,7 @@ import PollsService from '../../../../core/services/polls.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 import { UncontrolledTooltip } from 'reactstrap';
+import UsersService from '../../../../core/services/users.service';
 
 export class PollOfTheWeek extends React.Component {
     
@@ -63,7 +64,12 @@ export class PollOfTheWeek extends React.Component {
                                 Refresh
                         </UncontrolledTooltip>
                     </span>
-                    <span className="cursor-pointer list-btn" onClick={this.onList.bind(this)}>List</span>
+                    {
+                        UsersService.isCurrentUserAdmin()
+                        ?  <span className="cursor-pointer list-btn" onClick={this.onList.bind(this)}>View all</span>
+                        : ''
+                    }
+                    
                 </div>                
                 <div className="divider"></div>          
 

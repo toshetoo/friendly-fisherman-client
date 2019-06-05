@@ -27,11 +27,11 @@ export class PollsList extends React.Component {
     }
 
     onAddPoll() {
-        history.push('/add-poll');
+        history.push('/admin/add-poll');
     }
 
     onEditPoll(id) {
-        history.push('/add-poll/' + id);
+        history.push('/admin/add-poll/' + id);
     }
 
     onDeletePoll(pollId, index) {

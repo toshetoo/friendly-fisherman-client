@@ -41,7 +41,7 @@ export class AddCategory extends React.Component {
                     errors: response.data.error
                 });
             } else {
-                history.push('/categories-list');
+                history.push('/admin/categories-list');
             }
         });
     }

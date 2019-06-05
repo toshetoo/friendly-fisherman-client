@@ -8,6 +8,7 @@ import * as moment from 'moment';
 import history from './../../../../core/history/History';
 import CategoriesService from './../../../../core/services/categories.service';
 import CustomSelect from './../../../../core/shared-components/CustomSelect';
+import UploadAdapter from './../../../../core/shared-components/upload-adapter/UploadAdapter';
 
 export default class CreatePost extends React.Component {
 
@@ -74,6 +75,12 @@ export default class CreatePost extends React.Component {
 
         return (
             <div className="form-holder">
+                <div className="row mb-3">
+                    <div className="col-12 text-center">
+                        <h3>Create topic</h3>
+                    </div>
+                </div>
+               
                 <form onSubmit={this.onSubmit.bind(this)}>
                     <div className="row">
                         <div className="col-12">
@@ -84,8 +91,13 @@ export default class CreatePost extends React.Component {
                         <div className="col-12 vh-20">
                             <CKEditor
                                 editor={ClassicEditor}
+                                extraPlugins={[UploadAdapter]}
                                 data="<p>Write your post here...</p>"
-                                onInit={editor => { }}
+                                onInit={editor => {
+                                    editor.plugins.get( 'FileRepository' ).createUploadAdapter = function( loader ) {
+                                        return new UploadAdapter( loader );
+                                      };
+                                 }}
                                 onChange={(event, editor) => {
                                     const data = editor.getData();
                                     this.setState({

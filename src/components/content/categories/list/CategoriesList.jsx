@@ -21,17 +21,15 @@ export class CategoriesList extends React.Component {
             this.setState({
                 categories: response.data.items
             });
-
-            console.log(this.state.categories);
         });
     }
 
     onAddCategory() {
-        history.push('/add-category');
+        history.push('/admin/add-category');
     }
 
     onEditCategory(id) {
-        history.push('/add-category/' + id);
+        history.push('/admin/add-category/' + id);
     }
 
     onDeleteCategory(categoryId, index) {

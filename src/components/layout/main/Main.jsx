@@ -1,6 +1,5 @@
 import React from 'react';
 import { PostsHolder } from '../../content/posts/list/PostsHolder';
-import { CategoriesList } from './../../content/categories/list/CategoriesList';
 import { ActiveThreads } from '../../content/posts/active-threads/ActiveThreads';
 import { UserProfile } from '../../user/profile/UserProfile';
 import { Switch, Route, Redirect } from "react-router-dom";
@@ -9,16 +8,16 @@ import { ConfirmAccount } from './../../auth/confirm/ConfirmAccount';
 import ProtectedRoute from './../../../core/routes/ProtectedRoute';
 import { ResetPassword } from '../../auth/reset-password/ResetPassword';
 import { PollOfTheWeek } from './../../content/polls/poll-of-the-week/PollOfTheWeek';
-import { PollsList } from './../../content/polls/polls-list/PollsList';
-import { AddPoll } from './../../content/polls/add-poll/AddPoll';
 import { Messages } from '../../user/messages/Messages';
 import { NewMessage } from './../../user/messages/NewMessage';
 import { TrendingCategories } from '../../content/categories/trending-categories/TrendingCategories';
-import { AddCategory } from './../../content/categories/add-category/AddCaregory';
 import CreatePost from '../../content/posts/create-topic/CreatePost';
 import EventsList from '../../content/events/list/EventsList';
 import AddEvent from '../../content/events/add-event/AddEvent';
 import PreviewEvent from '../../content/events/preview-event/PreviewEvent';
+import { NewsList } from '../../content/news/list/NewsList';
+import NewsDetails from './../../content/news/news-details/NewsDetails';
+import FeedbackForm from './../feedback/FeedbackForm';
 
 export class Main extends React.Component {
 
@@ -36,26 +35,23 @@ export class Main extends React.Component {
                             <ProtectedRoute exact path="/messages/:selectedTab?" component={Messages} />
                             <ProtectedRoute exact path="/new-message" component={NewMessage} />
                             <ProtectedRoute exact path="/profile" component={UserProfile} />
-                            <ProtectedRoute exact path="/polls-list" component={PollsList} />
-                            <ProtectedRoute exact path="/add-poll" component={AddPoll} />
-                            <ProtectedRoute exact path="/add-poll/:id" component={AddPoll} />
-                            <ProtectedRoute exact path="/categories-list" component={CategoriesList} />
-                            <ProtectedRoute exact path="/add-category" component={AddCategory} />
-                            <ProtectedRoute exact path="/add-category/:id" component={AddCategory} />
 
                             <ProtectedRoute exact path="/create-topic" component={CreatePost} />
                             <ProtectedRoute exact path="/events" component={EventsList} />
                             <ProtectedRoute exact path="/add-event" component={AddEvent} />
                             <ProtectedRoute exact path="/preview-event/:id" component={PreviewEvent} />
 
+                            <ProtectedRoute exact path="/news/:id" component={NewsDetails} />
+                            <ProtectedRoute exact path="/feedback" component={FeedbackForm} />
+
 
                             <Redirect from="/" to="/home" />
                         </Switch>
                     </div>
-                    <div className="col-12 col-sm-4">
+                    <div className="col-12 col-sm-4">                        
+                        <NewsList />
                         <TrendingCategories />
                         <PollOfTheWeek />
-                        <ActiveThreads />
                     </div>
                 </div>
             </div>

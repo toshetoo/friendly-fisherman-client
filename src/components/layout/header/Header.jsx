@@ -23,23 +23,25 @@ export class Header extends React.Component {
     componentDidMount() {
         const isLoggedIn = this.props.isLoggedIn;
         if (isLoggedIn) {
-            
-        MessagesService.getNewMessagesCount().then((response) => {
-            this.setState({ numberOfMessages: response.data.numberOfNewMessages })
-        })
 
-            this.stateInterval = setInterval(() => {
-                MessagesService.getNewMessagesCount().then((response) => {
-                    this.setState({ numberOfMessages: response.data.numberOfNewMessages })
-                })
-            }, 5000)
+            MessagesService.getNewMessagesCount().then((response) => {
+                this.setState({ numberOfMessages: response.data.numberOfNewMessages })
+            })
+
+            if (!this.stateInterval) {
+                this.stateInterval = setInterval(() => {
+                    MessagesService.getNewMessagesCount().then((response) => {
+                        this.setState({ numberOfMessages: response.data.numberOfNewMessages })
+                    })
+                }, 5000)
+            }
         }
     }
 
     componentWillReceiveProps(nextProps) {
         const isLoggedIn = this.props.isLoggedIn;
 
-        if (isLoggedIn) {
+        if (isLoggedIn && !this.stateInterval) {
             this.stateInterval = setInterval(() => {
                 MessagesService.getNewMessagesCount().then((response) => {
                     this.setState({ numberOfMessages: response.data.numberOfNewMessages })
@@ -95,6 +97,11 @@ export class Header extends React.Component {
                                         <DropdownMenu>
                                             <Row>
                                                 <Col sm={12}><Link to="/profile" className="ml-2 text-center">Profile</Link></Col>
+                                                {
+                                                    UsersService.isCurrentUserAdmin()
+                                                        ? <Col sm={12}><Link to="/admin" className="ml-2 text-center">Admin Panel</Link></Col>
+                                                        : ''
+                                                }
                                                 <Col sm={12}><Link to="/home" className="ml-2 text-center" onClick={() => UsersService.logout()}>Log out</Link></Col>
                                             </Row>
                                         </DropdownMenu>
