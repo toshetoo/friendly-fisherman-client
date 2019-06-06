@@ -10,7 +10,7 @@ export default class EventService {
             }).catch(BaseService.handleError);
         });
     }
-
+    
     static getAll() {
         return new Promise((resolve, reject) => {
             BaseService.get(API_URL + '/Events/GetAll/').then((data) => {
@@ -18,6 +18,15 @@ export default class EventService {
             }).catch(BaseService.handleError);
         });
     }
+
+    static getTrendingEvents() {
+        return new Promise((resolve, reject) => {
+            BaseService.get(API_URL + '/Events/GetLatestEvents/').then((data) => {
+                resolve(data);
+            }).catch(BaseService.handleError);
+        });
+    }
+
     static save(event) {
         return new Promise((resolve, reject) => {
             BaseService.post(API_URL + '/Events/Save', event).then((data) => {

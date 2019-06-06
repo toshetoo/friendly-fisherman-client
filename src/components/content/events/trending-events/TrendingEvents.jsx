@@ -1,38 +1,38 @@
 import React from 'react';
-import './TrendingCategories.scss';
-import { CategoryItem } from '../single/CategoryItem';
-import CategoriesService from './../../../../core/services/categories.service';
+import './TrendingEvents.scss';
 import history from './../../../../core/history/History';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 import { UncontrolledTooltip } from 'reactstrap';
 import UsersService from '../../../../core/services/users.service';
+import EventService from './../../../../core/services/event.service';
+import { EventItem } from './../event-list-item/EventItem';
 
-export class TrendingCategories extends React.Component {
+export class TrendingEvents extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            categories: []
+            events: []
         };
     }
 
     componentDidMount() {        
-        CategoriesService.getTrendingCategories().then((response) => {
+        EventService.getTrendingEvents().then((response) => {
             this.setState({
-                categories: Object.values(response.item) || []
+                events: response.data.items || []
             });            
         });
     }
 
-    refreshCategories() {
+    refreshEvents() {
         this.setState({
             isLoading: true
         }, () => {
-            CategoriesService.getTrendingCategories().then((response) => {
+            EventService.getTrendingEvents().then((response) => {
                 this.setState({
-                    categories: Object.values(response.item) || [],
+                    events: response.data.items || [],
                     isLoading: false
                 })
             })
@@ -40,31 +40,31 @@ export class TrendingCategories extends React.Component {
     }
 
     onList() {
-        history.push('/admin/categories-list');
+        history.push('/events');
     }
 
     render() {
-        let categories = <div>No trending categories!</div>;
+        let events = <div>No trending events!</div>;
 
-        if (this.state.categories.length > 0) {
-            categories = this.state.categories.map(c => {
+        if (this.state.events.length > 0) {
+            events = this.state.events.map(c => {
                 return (
-                    <CategoryItem key={c.id} category={c}/>
+                    <EventItem key={c.id} event={c}/>
                 )
             }); 
         }              
 
         return (
-            <div className="categories-holder">
+            <div className="events-holder">
                 <div className="header-holder d-flex">
                     <span className="heading">
-                        Trending Categories
+                        Trending Events
                         <FontAwesomeIcon icon={faSyncAlt}
-                            onClick={() => this.refreshCategories()} 
-                            id="refresh-categories" 
+                            onClick={() => this.refreshEvents()} 
+                            id="refresh-events" 
                             className={"ml-2 cursor-pointer " + (this.state.isLoading ? 'fa-spin' : '')}>
                         </FontAwesomeIcon>
-                        <UncontrolledTooltip placement="top" target="refresh-categories">
+                        <UncontrolledTooltip placement="top" target="refresh-events">
                                 Refresh
                         </UncontrolledTooltip>
                     </span>
@@ -76,7 +76,7 @@ export class TrendingCategories extends React.Component {
                 </div> 
                 <div className="divider"></div>
                 <ul className="cats">
-                    {categories}
+                    {events}
                 </ul>                
             </div>
         );

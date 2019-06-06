@@ -1,6 +1,5 @@
 import React from 'react';
 import { PostsHolder } from '../../content/posts/list/PostsHolder';
-import { ActiveThreads } from '../../content/posts/active-threads/ActiveThreads';
 import { UserProfile } from '../../user/profile/UserProfile';
 import { Switch, Route, Redirect } from "react-router-dom";
 import { ThreadDetailsHolder } from './../../content/posts/thread-details/holder/ThreadDetailsHolder';
@@ -18,6 +17,7 @@ import PreviewEvent from '../../content/events/preview-event/PreviewEvent';
 import { NewsList } from '../../content/news/list/NewsList';
 import NewsDetails from './../../content/news/news-details/NewsDetails';
 import FeedbackForm from './../feedback/FeedbackForm';
+import { TrendingEvents } from '../../content/events/trending-events/TrendingEvents';
 
 export class Main extends React.Component {
 
@@ -50,6 +50,7 @@ export class Main extends React.Component {
                     </div>
                     <div className="col-12 col-sm-4">                        
                         <NewsList />
+                        <TrendingEvents />
                         <TrendingCategories />
                         <PollOfTheWeek />
                     </div>

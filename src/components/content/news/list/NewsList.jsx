@@ -14,10 +14,6 @@ export class NewsList extends React.Component {
                 <NewsItem />
                 <div className="divider"></div>
                 <NewsItem />
-                <div className="divider"></div>
-                <NewsItem />
-                <div className="divider"></div>
-                <NewsItem />
             </div>
         );
     }
