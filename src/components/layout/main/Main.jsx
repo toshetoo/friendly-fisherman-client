@@ -31,6 +31,7 @@ export class Main extends React.Component {
                             <Route exact path="/thread/:id" component={ThreadDetailsHolder} />
                             <Route exact path="/auth/confirm" component={ConfirmAccount} />
                             <Route exact path="/auth/reset-password" component={ResetPassword} />
+                            <Route exact path="/feedback" component={FeedbackForm} />
 
                             <ProtectedRoute exact path="/messages/:selectedTab?" component={Messages} />
                             <ProtectedRoute exact path="/new-message" component={NewMessage} />
@@ -42,7 +43,7 @@ export class Main extends React.Component {
                             <ProtectedRoute exact path="/preview-event/:id" component={PreviewEvent} />
 
                             <ProtectedRoute exact path="/news/:id" component={NewsDetails} />
-                            <ProtectedRoute exact path="/feedback" component={FeedbackForm} />
+                            
 
 
                             <Redirect from="/" to="/home" />

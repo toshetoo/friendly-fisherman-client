@@ -12,7 +12,8 @@ export class ThreadDetailsHolder extends React.Component {
         this.state = {
             thread: {},
             replies: [],
-            showReplyForm: false
+            showReplyForm: false,
+            isLoggedIn: BaseService.getLoggedUserId() !== null
         };
     }
 
@@ -33,6 +34,7 @@ export class ThreadDetailsHolder extends React.Component {
     }
 
     markThreadAsSeen() {
+        if (!this.state.isLoggedIn) return;
         const data = {
             threadReplyId: this.state.thread.id,
             userId: BaseService.getLoggedUserId()

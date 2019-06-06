@@ -4,25 +4,32 @@ import './Poll.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import PollsService from '../../../core/services/polls.service';
+import BaseService from './../../../core/services/base-api.service';
 
 export class Poll extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            votedAnswerId: null
+            votedAnswerId: null,
+            isLoggedIn: BaseService.getLoggedUserId() !== null
         };
     }
 
     componentDidMount() {
-        PollsService.getVotedAnswerForPoll(this.props.poll.id).then((response) => {
-            this.setState({
-                votedAnswerId: response.data.item ? response.data.item.answerId : undefined
+        if (this.state.isLoggedIn) {
+            PollsService.getVotedAnswerForPoll(this.props.poll.id).then((response) => {
+                this.setState({
+                    votedAnswerId: response.data.item ? response.data.item.answerId : undefined
+                });
             });
-        });
+        }        
     }
 
     onAnswerClick(ans) {
+        if (!this.state.isLoggedIn) return;
+
+
         PollsService.addVote(ans.pollId, ans.id).then(() => {
             this.setState({
                 votedAnswerId: ans.id
