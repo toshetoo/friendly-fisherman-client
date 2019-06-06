@@ -55,7 +55,7 @@ export default class PollsService {
 
   static getPollOfTheWeek() {
     return new Promise((resolve, reject) => {
-      BaseService.get(API_URL + '/polls/GetPollOfTheWeek').then((poll) => {
+      BaseService.getAnonymous(API_URL + '/polls/GetPollOfTheWeek').then((poll) => {
         resolve(poll);
       }).catch(BaseService.handleError);
     });

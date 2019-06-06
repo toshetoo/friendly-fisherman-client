@@ -6,7 +6,7 @@ export default class PostsService {
     static getById(id) {
     return new Promise((resolve, reject) => {
       const url = `/Threads/GetById/${id}?userId=${BaseService.getLoggedUserId()}`;
-      BaseService.get(API_URL + url).then((data) => {
+      BaseService.getAnonymous(API_URL + url).then((data) => {
         resolve(data.data);
       }).catch(BaseService.handleError);
     });
@@ -22,7 +22,7 @@ export default class PostsService {
 
   static getAll() {
     return new Promise((resolve, reject) => {
-      BaseService.get(API_URL + '/Threads/GetAll').then((data) => {
+      BaseService.getAnonymous(API_URL + '/Threads/GetAll').then((data) => {
         resolve(data);
       }).catch(BaseService.handleError);
     });

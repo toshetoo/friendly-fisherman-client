@@ -5,7 +5,11 @@ import * as jwt_decode from 'jwt-decode';
 export default class BaseService {
 
     static getLoggedUserId() {
-        return jwt_decode(localStorage.getItem('token')).ID;
+        const token = localStorage.getItem('token');
+        if (token) 
+            return jwt_decode(token).ID;
+
+        return null;
     }
 
     static getConfig() {
@@ -27,9 +31,19 @@ export default class BaseService {
         history.push('/login');
         window.location.reload();
     }
-
+    
     static get(url, getParams) {
         let config = this.getConfig();
+
+        if (getParams) {
+            config['params'] = getParams;
+        }
+
+        return axios.get(url, config);
+    }
+
+    static getAnonymous(url, getParams) {
+        let config = {};
 
         if (getParams) {
             config['params'] = getParams;

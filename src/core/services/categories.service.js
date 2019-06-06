@@ -20,7 +20,7 @@ export default class CategoriesService {
 
   static getTrendingCategories(id) {
     return new Promise((resolve, reject) => {
-      BaseService.get(API_URL + '/categories/TrendingCategories').then((data) => {
+      BaseService.getAnonymous(API_URL + '/categories/TrendingCategories').then((data) => {
         resolve(data.data);
       }).catch(BaseService.handleError);
     });

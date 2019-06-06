@@ -21,7 +21,7 @@ export default class EventService {
 
     static getTrendingEvents() {
         return new Promise((resolve, reject) => {
-            BaseService.get(API_URL + '/Events/GetLatestEvents/').then((data) => {
+            BaseService.getAnonymous(API_URL + '/Events/GetLatestEvents/').then((data) => {
                 resolve(data);
             }).catch(BaseService.handleError);
         });
@@ -69,7 +69,7 @@ export default class EventService {
 
     static getComments(id) {
         return new Promise((resolve, reject) => {
-            BaseService.get(API_URL + '/Events/GetCommentsForEvent/' + id).then((data) => {
+            BaseService.getAnonymous(API_URL + '/Events/GetCommentsForEvent/' + id).then((data) => {
                 resolve(data);
             }).catch(BaseService.handleError);
         });

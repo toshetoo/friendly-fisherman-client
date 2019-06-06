@@ -9,15 +9,23 @@ export default class UsersService {
   }
 
   static getLoggedUserId() {
-    return jwt_decode(localStorage.getItem('token')).ID;
+    const token = localStorage.getItem('token');
+    if(token)
+      return jwt_decode(token).ID;
+
+      return null;
   }
 
   static getLoggedUserObject() {
-    return jwt_decode(localStorage.getItem('token'));
+    const token = localStorage.getItem('token');
+    if(token)
+      return jwt_decode(token);
+
+    return null;
   }
 
   static isCurrentUserAdmin() {
-    return UsersService.getLoggedUserObject().role === 'Admin';
+    return UsersService.getLoggedUserObject() && UsersService.getLoggedUserObject().role === 'Admin';
   }
 
   static logout() {
