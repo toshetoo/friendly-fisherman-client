@@ -3,6 +3,8 @@ import './UserAdminProfile.scss';
 import UsersService from './../../../../core/services/users.service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faCross, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { API_BASE } from '../../../../core/services/Constants';
+import { NO_IMAGE_URL } from './../../../../core/services/Constants';
 
 export default class UserAdminProfile extends React.Component {
 
@@ -25,9 +27,12 @@ export default class UserAdminProfile extends React.Component {
     }
 
     render() {
-        let { authorImageUrl } = this.state.user;
-        if (!authorImageUrl) {
-            authorImageUrl = '/images/placeholder-face-big.png';
+        const imageSrc = () => {
+            if (this.state.user.imagePath) {
+                return API_BASE + this.state.user.imagePath;
+            } else {
+                return NO_IMAGE_URL;
+            }
         }
 
 
@@ -42,7 +47,7 @@ export default class UserAdminProfile extends React.Component {
                 <div className="row mb-3">
                     <div className="col-4">
                         <div className="image-holder text-center">
-                            <img src={authorImageUrl} />
+                            <img src={imageSrc()} />
                         </div>
                         
                     <div className="text-center">

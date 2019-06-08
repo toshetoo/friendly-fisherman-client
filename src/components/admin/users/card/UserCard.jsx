@@ -1,6 +1,7 @@
 import React from 'react';
 import './UserCard.scss';
 import history from './../../../../core/history/History';
+import { NO_IMAGE_URL, API_BASE } from './../../../../core/services/Constants';
 
 export default class UserCard extends React.Component {
     
@@ -9,11 +10,19 @@ export default class UserCard extends React.Component {
     }
 
     render() {
+        const imageSrc = () => {
+            if (this.props.user.imagePath) {
+                return API_BASE + this.props.user.imagePath;
+            } else {
+                return NO_IMAGE_URL;
+            }
+        }
+
         return (
             <div className="user-card">
                 <div className="row">
                     <div className="col-12 image-holder">
-                        <img className="mt-2 mb-2" src="/images/placeholder-face-big.png" />
+                        <img className="mt-2 mb-2" src={imageSrc()} />
                     </div>
                 </div>
                 <div className="row">
