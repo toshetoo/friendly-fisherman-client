@@ -75,7 +75,7 @@ export default class UsersService {
 
   static uploadProfilePicture(image) {
     return new Promise((resolve, reject) => {
-      BaseService.uploadFile(API_URL + '/users/uploadImage', image).then((image) => {
+      BaseService.uploadFile(API_URL + '/users/uploadImage', image, BaseService.getLoggedUserId()).then((image) => {
         resolve(image);
       }).catch(BaseService.handleError);
     });

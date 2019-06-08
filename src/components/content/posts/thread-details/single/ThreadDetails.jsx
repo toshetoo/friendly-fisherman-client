@@ -5,6 +5,8 @@ import { faThumbsUp, faThumbsDown, faReply, faClock } from '@fortawesome/free-so
 import { UncontrolledTooltip } from 'reactstrap';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import UsersService from '../../../../../core/services/users.service';
+import { API_BASE } from '../../../../../core/services/Constants';
+import { NO_IMAGE_URL } from './../../../../../core/services/Constants';
 
 export class ThreadDetails extends React.Component {
 
@@ -33,9 +35,12 @@ export class ThreadDetails extends React.Component {
 
     render() {
 
-        let { authorImageUrl } = this.props.thread;
-        if (!authorImageUrl) {
-            authorImageUrl = '/images/placeholder-face-big.png';
+        const imageSrc = () => {
+            if (this.props.thread.authorImageUrl !== undefined) {
+                return API_BASE + this.props.thread.authorImageUrl;
+            } else {
+                return NO_IMAGE_URL;
+            }
         }
 
         const canSeeDeleteBtn = UsersService.isCurrentUserAdmin() || UsersService.getLoggedUserId() === this.props.authorId;
@@ -48,7 +53,7 @@ export class ThreadDetails extends React.Component {
                             <div className="row pb-2">
                                 <div className="col-2">
                                     <div className="image-holder d-flex justify-content-center">
-                                        <img src={authorImageUrl} alt="profile-img" />
+                                        <img src={imageSrc()} alt="profile-img" />
                                     </div>
                                     <div className="badges">
 

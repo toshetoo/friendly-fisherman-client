@@ -16,7 +16,7 @@ export default class UploadAdapter {
         reader.onload = () => {
           console.log(reader.result);
 
-          return BaseService.uploadFile(url, reader.result.split(',')[1]).then(res => {
+          return BaseService.uploadFile(url, reader.result.split(',')[1], "fdsfdsfds").then(res => {
             console.log(res)
             var resData = res.data;
             resData.default = resData.url;

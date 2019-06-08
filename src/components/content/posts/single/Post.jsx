@@ -4,13 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faClock } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+import { API_BASE } from '../../../../core/services/Constants';
+import { NO_IMAGE_URL } from './../../../../core/services/Constants';
 
 export class Post extends React.Component {
     render() {
-
-        let { authorImageUrl } = this.props;
-        if (!authorImageUrl) {
-            authorImageUrl = '/images/placeholder-face-big.png';
+        const imageSrc = () => {
+            if (this.props.post.authorImageUrl !== undefined) {
+                return API_BASE + this.props.post.authorImageUrl;
+            } else {
+                return NO_IMAGE_URL;
+            }
         }
 
         return (
@@ -20,7 +24,7 @@ export class Post extends React.Component {
                         <div className="row pb-2">
                             <div className="col-2 pl-0">
                                 <div className="image-holder d-flex justify-content-center">
-                                    <img src={authorImageUrl} alt="avatar" />
+                                    <img src={imageSrc()} alt="avatar" />
                                 </div>
                                 <div className="badges">
 

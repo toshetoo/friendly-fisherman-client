@@ -6,6 +6,8 @@ import { faSearch, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import "./Header.scss";
 import UsersService from './../../../core/services/users.service';
 import MessagesService from './../../../core/services/messages.service';
+import { API_BASE } from "../../../core/services/Constants";
+import { NO_IMAGE_URL } from './../../../core/services/Constants';
 
 export class Header extends React.Component {
 
@@ -17,6 +19,7 @@ export class Header extends React.Component {
 
         this.state = {
             numberOfMessages: 0,
+            imagePath: undefined
         }
     }
 
@@ -35,6 +38,12 @@ export class Header extends React.Component {
                     })
                 }, 5000)
             }
+
+            UsersService.getById().then((resp) => {
+                this.setState({
+                    imagePath: resp.item.imagePath
+                })
+            });
         }
     }
 
@@ -58,6 +67,14 @@ export class Header extends React.Component {
         const isLoggedIn = this.props.isLoggedIn;
         const numberOfMessages = this.state.numberOfMessages;
         const messageNotificationColor = numberOfMessages > 0 ? '#1abc9c' : '';
+
+        const imageSrc = () => {
+            if (this.state.imagePath !== undefined) {
+                return API_BASE+ this.state.imagePath;
+            } else {
+                return NO_IMAGE_URL;
+            }
+        }
 
         return (
             <div className="header-content">
@@ -97,7 +114,7 @@ export class Header extends React.Component {
                                 <span className="nav-profile-holder cursor-pointer mr-4">
                                     <UncontrolledDropdown>
                                         <DropdownToggle tag="a" className="avatar-holder" caret>
-                                            <img src="/images/avatar.jpg" alt="profile-img" />
+                                            <img src={imageSrc()} alt="profile-img" />
                                         </DropdownToggle>
                                         <DropdownMenu>
                                             <Row>

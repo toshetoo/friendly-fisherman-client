@@ -70,13 +70,14 @@ export default class BaseService {
         return axios.delete(url, config);
     }
 
-    static uploadFile(url, file) {
+    static uploadFile(url, file, id) {
         // const data = new FormData();
         // data.append('file', file);
 
         const data = {
-            id: 'fdsafsd',
-            imageSource: file
+            id,
+            imageSource: file.source,
+            imageName: file.name
         };
         let config = this.getConfig();
 
