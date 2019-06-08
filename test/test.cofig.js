@@ -8,6 +8,16 @@ module.exports.routes = {
     private: {
         home: `${appUrlBase}/home`,
         profile: `${appUrlBase}/profile`,
+        admin: {
+            categories: {
+                add: `${appUrlBase}/admin/add-category`,
+                list: `${appUrlBase}/admin/categories-list`
+            },
+            polls: {
+                add: `${appUrlBase}/admin/add-poll`,
+                list: `${appUrlBase}/admin/polls-list`
+            }
+        }
     },
 };
 

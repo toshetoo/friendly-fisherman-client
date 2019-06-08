@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import history from './../../../../core/history/History';
 import * as moment from 'moment';
+import DatePicker from 'react-datepicker';
 
 export class AddPoll extends React.Component {
     constructor(props) {
@@ -88,8 +89,8 @@ export class AddPoll extends React.Component {
 
     render() {
         let { createdOn, endOn } = this.state;
-        createdOn = moment(createdOn).format('YYYY-MM-DD');
-        endOn = moment(endOn).format('YYYY-MM-DD');
+        // createdOn = createdOn ? moment(createdOn).format('YYYY-MM-DD'): '';
+        // endOn = endOn ? moment(endOn).format('YYYY-MM-DD'): '';
 
         const answers = [];
         for (let i = 0; i < this.state.answers.length; i++) {
@@ -98,7 +99,7 @@ export class AddPoll extends React.Component {
             answers.push(
                 <div className="row mt-3 ml-1" key={i}>
                     <div className="col-12 d-flex align-items-center">
-                        <input type="text" name={i} id={'answer_' + i} placeholder={'Answer ' + (i + 1)} onChange={(e) => this.onAnswerChange(i, e)} value={element} required/>
+                        <input type="text" className="poll-answer" name={i} id={'answer_' + i} placeholder={'Answer ' + (i + 1)} onChange={(e) => this.onAnswerChange(i, e)} value={element} required/>
                         <span className="cursor-pointer ml-2" onClick={() => this.removeAnswer(i)}><FontAwesomeIcon icon={faTrashAlt} /></span>
                     </div>                        
                 </div>                
@@ -128,26 +129,28 @@ export class AddPoll extends React.Component {
                             </div>                        
                         </div>
                         <div className="row mt-3">
-                            <div className="col-12">
-                                <input type="date" 
-                                name="createdOn" 
-                                id="createdOn" 
-                                placeholder="Start on" 
-                                onChange={this.onChange.bind(this)}
-                                value={createdOn}
-                                required />
-                            </div>
+                            <DatePicker
+                                name="createdOn"
+                                placeholderText="Start on"
+                                selected={createdOn}
+                                selectsStart
+                                startDate={createdOn}
+                                endDate={endOn}
+                                onChange={(date) => this.setState({ createdOn: date })}
+                                required
+                            />
                         </div>
                         <div className="row mt-3">
-                            <div className="col-12">
-                                <input type="date" 
-                                name="endOn" 
-                                id="endOn" 
-                                placeholder="End on" 
-                                onChange={this.onChange.bind(this)}
-                                value={endOn}
-                                required />
-                            </div>
+                            <DatePicker
+                                name="endOn"
+                                placeholderText="End on"
+                                selected={endOn}
+                                selectsStart
+                                startDate={createdOn}
+                                endDate={endOn}
+                                onChange={(date) => this.setState({ endOn: date })}
+                                required
+                            />
                         </div>
                         {answers}
                         <div className="row mt-3">
