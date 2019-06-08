@@ -78,43 +78,15 @@ describe('Login', () => {
     }, 1600000);
 
     test('users should login successfully', async () => {
-        const accountDetails = {
-            username: faker.internet.userName(),
-            email: faker.internet.email(),
-            password: faker.internet.password() + faker.internet.userName() + faker.internet.ip(),
-            firstName: faker.name.firstName(),
-            lastName: faker.name.lastName()
-        }
-
-        await page.goto(routes.public.register);
-        await page.waitForSelector('.register-component-container');
-
-        await page.click('input[name=username]');
-        await page.type('input[name=username]', accountDetails.username)
-
-        await page.click('input[name=email]');
-        await page.type('input[name=email]', accountDetails.email)
-
-        await page.click('input[name=password]');
-        await page.type('input[name=password]', accountDetails.password)
-
-        await page.click('input[name=firstName]');
-        await page.type('input[name=firstName]', accountDetails.firstName)
-
-        await page.click('input[name=lastName]');
-        await page.type('input[name=lastName]', accountDetails.lastName)
-
-        await page.click('button[type=submit]');
-
-        await page.waitForSelector('.posts-holder');
-
+        const username = 'admin';
+        const pass = 'Qwerty123!';        
         await page.goto(routes.public.login);
         await page.waitForSelector('.login-component-container');
 
         await page.click('input[name=username]');
-        await page.type('input[name=username]', accountDetails.username);
+        await page.type('input[name=username]', username);
         await page.click('input[name=password]');
-        await page.type('input[name=password]', accountDetails.password);
+        await page.type('input[name=password]', pass);
         await page.click('button[type=submit]');
         await page.waitForSelector('.nav-profile-holder');
     }, 1600000);

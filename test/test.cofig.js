@@ -3,6 +3,7 @@ module.exports.routes = {
     public: {
         register: `${appUrlBase}/register`,
         login: `${appUrlBase}/login`,
+        forgottenPassword: `${appUrlBase}/forgotten-password`
     },
     private: {
         home: `${appUrlBase}/home`,

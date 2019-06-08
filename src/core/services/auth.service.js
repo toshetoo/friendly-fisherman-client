@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { API_URL } from './Constants';
+import BaseService from './base-api.service';
 
 export default class AuthService {
     static login(user) {
@@ -38,7 +39,7 @@ export default class AuthService {
         return new Promise((resolve, reject) => {
             axios.post(API_URL + '/Auth/RequestPasswordReset', { email }).then((data) => {
                 resolve(data);
-            });
+            }).catch((error) => BaseService.handleError(error, reject));
         });
     }
 

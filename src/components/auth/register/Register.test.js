@@ -100,32 +100,7 @@ describe('Register', () => {
             firstName: faker.name.firstName(),
             lastName: faker.name.lastName()
         }
-        await page.waitForSelector('.register-component-container');
-
-        await page.click('input[name=username]', {clickCount: 3})
-        await page.keyboard.press('Backspace')
-        await page.type('input[name=username]', accountDetails.username)
-
-        await page.click('input[name=email]', {clickCount: 3})
-        await page.keyboard.press('Backspace')
-        await page.type('input[name=email]', accountDetails.email)
-
-        await page.click('input[name=password]', {clickCount: 3})
-        await page.keyboard.press('Backspace')
-        await page.type('input[name=password]', accountDetails.password)
-
-        await page.click('input[name=firstName]', {clickCount: 3})
-        await page.keyboard.press('Backspace')
-        await page.type('input[name=firstName]', accountDetails.firstName)
-
-        await page.click('input[name=lastName]', {clickCount: 3})
-        await page.keyboard.press('Backspace')
-        await page.type('input[name=lastName]', accountDetails.lastName)
-
-        await page.click('button[type=submit]');
-
-        await page.waitForSelector('.posts-holder');
-
+        
         await page.goto(routes.public.register);
 
         await page.waitForSelector('.register-component-container');
@@ -151,9 +126,7 @@ describe('Register', () => {
         await page.waitForSelector('.errors');
     }, 1600000);
 
-    test('users should register successfully', async () => {     
-        
-
+    test('users should register successfully', async () => {    
         await page.waitForSelector('.register-component-container');
 
         await page.click('input[name=username]', {clickCount: 3})
@@ -178,7 +151,7 @@ describe('Register', () => {
 
         await page.click('button[type=submit]')
 
-        await page.waitForSelector('.posts-holder');
+        await page.waitForSelector('.text-success');
     }, 1600000);
 });
 

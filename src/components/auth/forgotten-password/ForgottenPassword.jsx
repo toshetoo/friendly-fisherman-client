@@ -10,7 +10,7 @@ export class ForgottenPassword extends React.Component {
 
         this.state = {
             email: '',
-            errors: ''
+            errors: {}
         };
     }
 
@@ -31,6 +31,10 @@ export class ForgottenPassword extends React.Component {
             } else {
                 this.props.history.push('/home');
             }
+        }).catch((error) => {
+            this.setState({
+                errors: error
+            });
         });
     }
 
@@ -49,7 +53,7 @@ export class ForgottenPassword extends React.Component {
                         </p><p>Enter your email address below and we'll send you instructions on how to change your password.</p>
                     </div>
                     <div className="errors text-center">
-                        <span className="text-danger">{this.state.errors}</span>
+                        <span className="text-danger">{this.state.errors.message}</span>
                     </div>
                     <form onSubmit={this.onSubmit.bind(this)}>
                         <div className="row mt-3">

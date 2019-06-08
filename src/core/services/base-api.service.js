@@ -84,10 +84,12 @@ export default class BaseService {
         return axios.post(url, data, config);
     }
 
-    static handleError(error) {
+    static handleError(error, reject) {
         if (error.response && error.response.status === 401) {
             sessionStorage.removeItem('token');
             history.push('/login');
         }
+
+        reject && reject(error.response.data);
     }
 }
