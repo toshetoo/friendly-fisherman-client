@@ -9,7 +9,7 @@ export class NewsItem extends React.Component {
             <div className="news-item">
                 <div className="row">
                     <div className="col-12">
-                        <Link to="/news/10">This Dock Turns Your iPhone Into a Bedside Lamp</Link>
+                        <Link to="/news/10">Sign up for the contest on 17 July. Only 15 spots are left.</Link>
                     </div>                    
                 </div>
                 <div className="row">

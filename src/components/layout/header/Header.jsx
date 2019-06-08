@@ -57,6 +57,14 @@ export class Header extends React.Component {
                 })
             }, 5000)
         }
+
+        if (isLoggedIn) {
+            UsersService.getById().then((resp) => {
+                this.setState({
+                    imagePath: resp.item.imagePath
+                })
+            });
+        }
     }
 
     componentWillUnmount() {

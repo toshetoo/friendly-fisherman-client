@@ -63,7 +63,7 @@ export class AddCategory extends React.Component {
                             <div className="col-12">
                                 <input type="text" name="name" 
                                 id="name" 
-                                laceholder="Name" 
+                                placeholder="Name" 
                                 onChange={this.onChange.bind(this)} 
                                 value={this.state.name}
                                 required/>

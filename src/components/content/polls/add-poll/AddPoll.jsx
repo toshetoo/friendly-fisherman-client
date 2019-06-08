@@ -67,6 +67,7 @@ export class AddPoll extends React.Component {
 
     onSubmit(event) {
         event.preventDefault();
+
         PollsService.save(this.state).then((response) => {
             if (response.data.error) {
                 this.setState({
@@ -122,7 +123,7 @@ export class AddPoll extends React.Component {
                             <div className="col-12">
                                 <input type="text" name="question" 
                                 id="question" 
-                                laceholder="Question" 
+                                placeholder="Question" 
                                 onChange={this.onChange.bind(this)} 
                                 value={this.state.question}
                                 required/>
@@ -158,7 +159,7 @@ export class AddPoll extends React.Component {
                                 <Button color="primary" onClick={this.addAnswer.bind(this)}>Add answer</Button>
                             </div>  
                             <div className="col-6">
-                                <Button type="submit" color="primary">Save</Button>
+                                <Button type="submit" color="primary" disabled={this.state.answers.length < 2 || this.state.answers.length > 10}>Save</Button>
                             </div>                            
                         </div>
                     </form>

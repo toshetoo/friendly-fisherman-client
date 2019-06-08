@@ -27,7 +27,7 @@ export class PollOfTheWeek extends React.Component {
     }
 
     onList() {
-        history.push('/polls-list');
+        history.push('/admin/polls-list');
     }
 
     refreshPoll() {

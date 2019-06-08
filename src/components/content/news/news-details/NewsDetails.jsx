@@ -8,16 +8,26 @@ export default class NewsDetails extends React.Component {
 
         this.state = {
             news: {
-                title: 'This is a dummy title',
-                content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut auctor nisl, eget egestas magna. Morbi odio nisi, commodo nec nulla sit amet, gravida luctus mauris. Nulla mi nulla, aliquam tincidunt ante in, malesuada pretium diam. Donec semper, arcu ut congue ultricies, ipsum sem pellentesque est, a sodales lectus libero vel ante. Nunc arcu augue, fermentum quis semper vitae, venenatis eleifend massa. Curabitur molestie tempus semper. Aliquam erat volutpat. Praesent a magna pellentesque, posuere velit vitae, porta ante. Quisque finibus massa accumsan vestibulum mattis. Etiam molestie viverra eros, a fermentum leo pulvinar efficitur. Fusce mi est, viverra vel bibendum sed, feugiat sit amet lacus. Etiam imperdiet augue vel ipsum malesuada euismod. Praesent at lacus vel massa fringilla euismod sit amet ac turpis. Suspendisse varius, justo et finibus pulvinar, urna purus condimentum metus, id blandit enim urna at sem. Donec scelerisque leo semper elit cursus iaculis. Pellentesque semper pellentesque pretium.
+                title: 'Sign up for the contest on 17 July. Only 15 spots are left.',
+                content: `1. THE COMMON SENSE RULE: The BronzeBack Classic is about getting people-powered water crafts out in the name of fun and competition!  Our goal as host is to work hard to ensure a fair and balanced playing field. With that being said, if any of the rules need altering to ensure the safety of all participates we reserve the right to alter them at any time, without formal notice. To stay up to date with rules, prizes and general information please reference CWOutfitting.com and our Facebook page.
 
-                Nulla eget ipsum quis augue elementum dapibus at gravida ante. Integer vel eros ut leo porttitor fringilla. Donec consectetur blandit scelerisque. Etiam mollis eget massa quis ornare. Etiam ultricies efficitur ultrices. Ut lorem nisi, dignissim vel risus non, efficitur laoreet eros. Sed pellentesque dui eu metus ultricies euismod sed at felis. Nunc a justo finibus dui commodo efficitur eu quis tellus. Maecenas quis porttitor sapien.
+
+                2. WHO CAN ENTER: Anyone with or without (we rent them) a canoe, kayak or SUP board and wants to experience some awesome fishing, scenery, and camaraderie. This excludes any use of a trolling motor and any other mechanical motor.
                 
-                Nullam nec velit bibendum, tempus augue sed, malesuada arcu. Quisque vitae nunc libero. Fusce faucibus nisl a ipsum mollis, ut ultricies velit placerat. Donec molestie bibendum justo sed dignissim. Etiam varius, massa a ullamcorper auctor, augue velit gravida lacus, et porttitor velit tellus tincidunt felis. Aliquam vitae posuere est. Ut venenatis mi risus, eu vehicula est aliquet sit amet. Curabitur laoreet ex eget quam ullamcorper posuere. Curabitur aliquam, est id feugiat bibendum, felis nisi convallis felis, et vestibulum nulla metus nec metus. Fusce bibendum tincidunt placerat. Nam viverra sit amet felis a mattis. Aliquam consectetur nisi nisi, commodo elementum risus posuere eget. In et luctus quam, vitae condimentum dolor. Ut tempor in tellus id gravida.
                 
-                Aliquam in justo ullamcorper, accumsan enim in, faucibus risus. Maecenas accumsan felis enim, id egestas neque porta nec. Etiam nec risus volutpat, interdum est sed, suscipit nibh. Duis porttitor rutrum semper. Nam viverra tellus vitae elementum ultrices. Nunc ac tincidunt dolor. Sed sodales porttitor fringilla. Donec eleifend feugiat mattis. Nullam sagittis ipsum vitae tortor commodo pulvinar. Sed neque diam, malesuada a mollis ut, lobortis id odio. Donec venenatis ante ut eros sodales, vel scelerisque quam mattis. Praesent imperdiet nisi enim, ut molestie libero auctor vel. Quisque non faucibus est. Sed interdum dictum urna, et ornare neque pretium et. Fusce faucibus lorem eu sagittis vestibulum.
+                3. REGISTRATION AND FEES: We wanted to provide a low cost tournament with extra special service, food, prizes, and fishing action.  Price includes entry fee, shuttling of people and equipment, staff to assist with getting on and off the river, participation gift, cash prizes and merchandise prizes for at least 4-6 places, door prizes, awards ceremony with a great meal, and equipment rentals available if you pay the extra amount.  Our goal is for all participants to take home prizes.
                 
-                Cras scelerisque finibus nisl, et fringilla massa imperdiet in. Phasellus vehicula tortor quis luctus ultricies. Morbi porta rhoncus eros vel pretium. Pellentesque sed ante vulputate, luctus diam a, porttitor arcu. Vivamus eu consectetur ligula, a finibus odio. Donec massa augue, varius et elit vitae, eleifend vehicula velit. Duis vitae est sit amet velit accumsan aliquam. Aenean vitae malesuada turpis. Vestibulum vitae egestas mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ante felis, tincidunt vitae lectus eu, hendrerit fringilla justo. Praesent lacinia feugiat sollicitudin. Nullam non turpis aliquam, tincidunt eros vitae, dictum quam. Morbi vel vestibulum tortor, a semper augue.`,
+                See tournament web page for costs including early bird registration cost and deadline.
+                
+                Angler without canoe or kayak = rentals available at discounted price.  See tournament web page.
+                
+                We have various types of fishing kayaks and canoes.
+                Special requests can be accommodated based on inventory and availability.
+                Availability of equipment is limited and will be reserved first come first serve.
+                Payment can be made on the CWOutfitting.com web site by credit card or in person at our shop with credit card, check or cash at any time before the Friday night pre-registration meeting. 
+                
+                The tournament is limited to 42 shuttle participants and 50 total participants.
+                You must pick your wave starting time & type of rental water craft before the Friday Evening Pre-Tournament meeting.`,
                 publishedOn: '21st of March'
             }
         };
