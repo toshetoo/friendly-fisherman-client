@@ -6,6 +6,8 @@ import EventService from '../../../../core/services/event.service';
 import * as moment from 'moment';
 import './Comment.scss';
 import BaseService from '../../../../core/services/base-api.service';
+import { API_BASE } from '../../../../core/services/Constants';
+import { NO_IMAGE_URL } from './../../../../core/services/Constants';
 
 export default class Comment extends Component {
     constructor(props) {
@@ -22,9 +24,13 @@ export default class Comment extends Component {
     }
 
     render() {
-        let { creatorProfileImagePath } = this.props.comment;
-        if (!creatorProfileImagePath) {
-            creatorProfileImagePath = '/images/placeholder-face-big.png';
+        const imageSrc = () => {
+            let { creatorProfileImagePath } = this.props.comment;
+            if (creatorProfileImagePath !== undefined) {
+                return API_BASE + creatorProfileImagePath;
+            } else {
+                return NO_IMAGE_URL;
+            }
         }
 
         return (
@@ -35,7 +41,7 @@ export default class Comment extends Component {
                             <div className="row pb-2">
                                 <div className="col-3">
                                     <div className="image-holder d-flex justify-content-center">
-                                        <img src={creatorProfileImagePath} alt="profile-img" />
+                                        <img src={imageSrc()} alt="profile-img" />
                                     </div>
                                     <div className="badges">
                                         <span>{this.props.comment.creatorName}</span>
