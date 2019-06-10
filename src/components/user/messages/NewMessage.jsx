@@ -39,7 +39,7 @@ export class NewMessage extends React.Component {
                     content: `== > gfgdfgsdfgdf
 I wanted to talk to you about your topic, do you have a minute?`
                 });
-            }, 2000)
+            }, 200)
         }
     }
 
