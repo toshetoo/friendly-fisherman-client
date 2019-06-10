@@ -10,32 +10,32 @@ export default class FeedbackList extends React.Component {
             items: [{
                 title: "Feedback 1",
                 sentOn: "21st of March @ 8:29 PM",
-                image: 'https://via.placeholder.com/150'
+                image: 'https://picsum.photos/200/300?random=1'
             },
             {
                 title: "Feedback 1",
                 sentOn: "21st of March @ 8:29 PM",
-                image: 'https://via.placeholder.com/150'
+                image: 'https://picsum.photos/200/300?random=2'
             },
             {
                 title: "Feedback 1",
                 sentOn: "21st of March @ 8:29 PM",
-                image: 'https://via.placeholder.com/150'
+                image: 'https://picsum.photos/200/300?random=3'
             },
             {
                 title: "Feedback 1",
                 sentOn: "21st of March @ 8:29 PM",
-                image: 'https://via.placeholder.com/150'
+                image: 'https://picsum.photos/200/300?random=4'
             },
             {
                 title: "Feedback 1",
                 sentOn: "21st of March @ 8:29 PM",
-                image: 'https://via.placeholder.com/150'
+                image: 'https://picsum.photos/200/300?random=5'
             },
             {
                 title: "Feedback 1",
                 sentOn: "21st of March @ 8:29 PM",
-                image: 'https://via.placeholder.com/150'
+                image: 'https://picsum.photos/200/300?random=6'
             }]
         }
     }
