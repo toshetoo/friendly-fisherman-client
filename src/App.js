@@ -13,6 +13,8 @@ import history from './core/history/History';
 import UsersService from './core/services/users.service';
 import { ForgottenPassword } from './components/auth/forgotten-password/ForgottenPassword';
 import AdminModule from './components/admin/AdminModule';
+import ProtectedRoute from './core/routes/ProtectedRoute';
+import { UserProfile } from './components/user/profile/UserProfile';
 
 class App extends Component {
 
@@ -41,6 +43,7 @@ class App extends Component {
             }} />
             <Route path="/register" component={Register} />
             <Route path="/forgotten-password" component={ForgottenPassword} />
+            <ProtectedRoute exact path="/profile" component={UserProfile} />
             <Route path="/admin" component={AdminModule} />
             <Route path="/" component={Main} />
           </Switch>
