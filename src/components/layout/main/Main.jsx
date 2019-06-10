@@ -38,6 +38,7 @@ export class Main extends React.Component {
 
                             <ProtectedRoute exact path="/messages/:selectedTab?" component={Messages} />
                             <ProtectedRoute exact path="/new-message" component={NewMessage} />
+                            <ProtectedRoute exact path="/new-message/:toAuthor" component={NewMessage} />
                             <ProtectedRoute exact path="/profile" component={UserProfile} />
 
                             <ProtectedRoute exact path="/create-topic" component={CreatePost} />

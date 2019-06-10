@@ -1,7 +1,7 @@
 import React from 'react';
 import './ThreadDetails.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown, faReply, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp, faThumbsDown, faReply, faClock, faReplyAll } from '@fortawesome/free-solid-svg-icons';
 import { UncontrolledTooltip } from 'reactstrap';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import UsersService from '../../../../../core/services/users.service';
@@ -20,6 +20,10 @@ export class ThreadDetails extends React.Component {
 
     onReplyClicked() {
         this.props.onReplyClicked();
+    }
+
+    onReplyAuthClicked() {
+        this.props.onReplyAuthClicked();
     }
 
     onDeleteClicked() {
@@ -92,14 +96,14 @@ export class ThreadDetails extends React.Component {
                                 <div className="offset-2 col-10 postfooter">
                                     <div className="likeblock">
                                         <span className={"mr-2 " + (this.getLikeType(1) ? "up" : "")}>
-                                            <FontAwesomeIcon icon={faThumbsUp} id="like-btn" className="cursor-pointer" onClick={this.onLikeClicked.bind(this)} /> {this.props.thread.likes ? this.props.thread.likes : 0}
-                                            <UncontrolledTooltip placement="top" target="like-btn">
+                                            <FontAwesomeIcon icon={faThumbsUp} id={"like-btn" + this.props.thread.id} className="cursor-pointer" onClick={this.onLikeClicked.bind(this)} /> {this.props.thread.likes ? this.props.thread.likes : 0}
+                                            <UncontrolledTooltip placement="top" target={"like-btn" + this.props.thread.id}>
                                                 Like
                                             </UncontrolledTooltip>
                                         </span>
                                         <span className={"ml-2 mr-2 " + (this.getLikeType(0) ? "down" : "")}>
-                                            <FontAwesomeIcon icon={faThumbsDown} id="dislike-btn" className="cursor-pointer" onClick={this.onDislikeClicked.bind(this)} /> {this.props.thread.dislikes ? this.props.thread.dislikes : 0}
-                                            <UncontrolledTooltip placement="top" target="dislike-btn">
+                                            <FontAwesomeIcon icon={faThumbsDown} id={"dislike-btn" + this.props.thread.id} className="cursor-pointer" onClick={this.onDislikeClicked.bind(this)} /> {this.props.thread.dislikes ? this.props.thread.dislikes : 0}
+                                            <UncontrolledTooltip placement="top" target={"dislike-btn" + this.props.thread.id}>
                                                 Dislike
                                             </UncontrolledTooltip>
                                         </span>
@@ -108,13 +112,21 @@ export class ThreadDetails extends React.Component {
                                     {this.props.shouldHaveReply ? 
                                         <div className="prev">
                                             <span>
-                                                <FontAwesomeIcon id="reply-btn" icon={faReply} className="cursor-pointer" onClick={this.onReplyClicked.bind(this)}/>
-                                                <UncontrolledTooltip placement="top" target="reply-btn">
+                                                <FontAwesomeIcon id={"reply-btn" + this.props.thread.id} icon={faReply} className="cursor-pointer" onClick={this.onReplyClicked.bind(this)}/>
+                                                <UncontrolledTooltip placement="top" target={"reply-btn" + this.props.thread.id}>
                                                     Add reply
                                             </UncontrolledTooltip>
                                             </span>
                                         </div> 
-                                    : ''}                                    
+                                    : ''}  
+                                    <div className="prev">
+                                            <span>
+                                                <FontAwesomeIcon id={"reply-auth-btn" + this.props.thread.id} icon={faReplyAll} className="cursor-pointer" onClick={this.onReplyAuthClicked.bind(this)}/>
+                                                <UncontrolledTooltip placement="top" target={"reply-auth-btn" + this.props.thread.id}>
+                                                    Reply to author
+                                            </UncontrolledTooltip>
+                                            </span>
+                                        </div>                                   
                                     <div className="posted ml-2"><FontAwesomeIcon icon={faClock} /> Posted on : {this.props.thread.createdOn}</div>
                                 </div>
                             </div>

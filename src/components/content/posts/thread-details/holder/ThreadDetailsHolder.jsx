@@ -74,6 +74,10 @@ export class ThreadDetailsHolder extends React.Component {
         });
     }
 
+    onReplyAuthClicked = () => {
+        history.push('/new-message/true')
+    }
+
     onDeleteReplyClicked = (id) => {
         PostsService.deleteReply(id).then(() => {
             this.getThread();
@@ -106,6 +110,7 @@ export class ThreadDetailsHolder extends React.Component {
             authorId={r.userId}
             onDislikeClicked={this.onDislikeClicked} 
             onLikeClicked={this.onLikeClicked}
+            onReplyAuthClicked={this.onReplyAuthClicked}
             onDeleteClicked={this.onDeleteReplyClicked}/>
         });
 
@@ -117,6 +122,7 @@ export class ThreadDetailsHolder extends React.Component {
                 onDislikeClicked={this.onDislikeClicked} 
                 onLikeClicked={this.onLikeClicked} 
                 onReplyClicked={this.onReplyClicked}
+                onReplyAuthClicked={this.onReplyAuthClicked}
                 shouldHaveReply={true}
                 onDeleteClicked={this.onDeleteThreadClicked}/>
                 {this.state.showReplyForm ? <CreateReply threadId={this.state.thread.id} refresh={this.getThread} /> : ''}

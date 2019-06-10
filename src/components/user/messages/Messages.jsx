@@ -30,7 +30,7 @@ export class Messages extends React.Component {
             MessagesService.getAllForReceiver().then((response) => {
                 this.setState({ messages: response.data.items })
             });
-        }
+        }        
     }
 
 
