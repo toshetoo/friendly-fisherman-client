@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { InputGroup, InputGroupAddon, Button, Input, UncontrolledDropdown, DropdownToggle, DropdownMenu, Row, Col } from "reactstrap";
+import { InputGroup, InputGroupAddon, Button, Input, UncontrolledDropdown, UncontrolledTooltip, DropdownToggle, DropdownMenu, Row, Col } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faEnvelope, faSearchPlus } from "@fortawesome/free-solid-svg-icons";
 import "./Header.scss";
 import UsersService from './../../../core/services/users.service';
 import MessagesService from './../../../core/services/messages.service';
 import { API_BASE } from "../../../core/services/Constants";
 import { NO_IMAGE_URL } from './../../../core/services/Constants';
+import history from './../../../core/history/History';
 
 export class Header extends React.Component {
 
@@ -71,6 +72,11 @@ export class Header extends React.Component {
         clearInterval(this.stateInterval);
     }
 
+    search(isAdvanced) {
+        const url = isAdvanced ? '/search-results/true' : '/search-results';
+        history.push(url);
+    }
+
     render() {
         const isLoggedIn = this.props.isLoggedIn;
         const numberOfMessages = this.state.numberOfMessages;
@@ -100,9 +106,20 @@ export class Header extends React.Component {
                             <InputGroup>
                                 <Input placeholder="Search topics" className="search-input" />
                                 <InputGroupAddon addonType="append">
-                                    <Button color="secondary">
+                                    <Button color="secondary" id="search-btn" onClick={() => this.search()}>
                                         <FontAwesomeIcon icon={faSearch} />
                                     </Button>
+                                    <UncontrolledTooltip placement="top" target="search-btn">
+                                        Search
+                                    </UncontrolledTooltip>
+                                </InputGroupAddon>
+                                <InputGroupAddon addonType="append">
+                                    <Button color="secondary" id="adv-search-btn" onClick={() => this.search(true)}>
+                                        <FontAwesomeIcon icon={faSearchPlus} />
+                                    </Button>
+                                    <UncontrolledTooltip placement="top" target="adv-search-btn">
+                                        Advanced Search
+                                    </UncontrolledTooltip>
                                 </InputGroupAddon>
                             </InputGroup>
                             {isLoggedIn ?

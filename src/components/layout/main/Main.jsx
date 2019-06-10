@@ -18,6 +18,7 @@ import { NewsList } from '../../content/news/list/NewsList';
 import NewsDetails from './../../content/news/news-details/NewsDetails';
 import FeedbackForm from './../feedback/FeedbackForm';
 import { TrendingEvents } from '../../content/events/trending-events/TrendingEvents';
+import SearchResults from '../../content/search/search-results/SearchResults';
 
 export class Main extends React.Component {
 
@@ -32,6 +33,8 @@ export class Main extends React.Component {
                             <Route exact path="/auth/confirm" component={ConfirmAccount} />
                             <Route exact path="/auth/reset-password" component={ResetPassword} />
                             <Route exact path="/feedback" component={FeedbackForm} />
+                            <Route exact path="/search-results" component={SearchResults} />
+                            <Route exact path="/search-results/:isAdvanced" component={SearchResults} />
 
                             <ProtectedRoute exact path="/messages/:selectedTab?" component={Messages} />
                             <ProtectedRoute exact path="/new-message" component={NewMessage} />
