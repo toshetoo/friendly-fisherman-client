@@ -3,7 +3,7 @@ import './ThreadDetails.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown, faReply, faClock, faReplyAll } from '@fortawesome/free-solid-svg-icons';
 import { UncontrolledTooltip } from 'reactstrap';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faStar } from '@fortawesome/free-solid-svg-icons';
 import UsersService from '../../../../../core/services/users.service';
 import { API_BASE } from '../../../../../core/services/Constants';
 import { NO_IMAGE_URL } from './../../../../../core/services/Constants';
@@ -73,6 +73,12 @@ export class ThreadDetails extends React.Component {
                                         {
                                             canSeeDeleteBtn 
                                             ? <div className="col-4 text-right">
+                                                <span className="mr-2">
+                                                    <FontAwesomeIcon icon={faStar} id={"favorite-" + this.props.thread.id} className="cursor-pointer text-danger" onClick={this.onDeleteClicked.bind(this)} />
+                                                    <UncontrolledTooltip placement="top" target={"favorite-" + this.props.thread.id}>
+                                                        Bookmark
+                                                    </UncontrolledTooltip>
+                                                </span>
                                                 <span className="mr-2">
                                                     <FontAwesomeIcon icon={faTrash} id={"delete-" + this.props.thread.id} className="cursor-pointer text-danger" onClick={this.onDeleteClicked.bind(this)} />
                                                     <UncontrolledTooltip placement="top" target={"delete-" + this.props.thread.id}>

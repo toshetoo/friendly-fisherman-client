@@ -142,37 +142,37 @@ export class Header extends React.Component {
                                         <DropdownMenu>
                                         <DropdownItem divider />
                                             <DropdownItem>
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <div class="media-object">
-                                                            <img data-src="holder.js/50x50?bg=cccccc" class="img-circle" alt="50x50" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2250%22%20height%3D%2250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16b4341eb03%20text%20%7B%20fill%3A%23919191%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16b4341eb03%22%3E%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23cccccc%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%226.4765625%22%20y%3D%2229.55625%22%3E50x50%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" />
+                                                <div className="media">
+                                                    <div className="media-left">
+                                                        <div className="media-object">
+                                                            <img data-src="holder.js/50x50?bg=cccccc" className="img-circle" alt="50x50" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2250%22%20height%3D%2250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16b4341eb03%20text%20%7B%20fill%3A%23919191%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16b4341eb03%22%3E%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23cccccc%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%226.4765625%22%20y%3D%2229.55625%22%3E50x50%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" />
                                                         </div>
                                                     </div>
-                                                    <div class="media-body">
-                                                        <strong class="notification-title"><a href="#">Dave Lister</a> commented on <a href="#">DWARF-13 - Maintenance</a></strong>
-                                                        <p class="notification-desc">I totally don't wanna do it. Rimmer can do it.</p>
+                                                    <div className="media-body">
+                                                        <strong className="notification-title"><a href="#">Dave Lister</a> commented on <a href="#">Tournament Haskovo.</a></strong>
+                                                        <p className="notification-desc">Can someone give me the coordinates for this...</p>
 
-                                                        <div class="notification-meta">
-                                                            <small class="timestamp">27. 11. 2015, 15:00</small>
+                                                        <div className="notification-meta">
+                                                            <small className="timestamp">27. 11. 2015, 15:00</small>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </DropdownItem>
                                             <DropdownItem divider />
                                             <DropdownItem>
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <div class="media-object">
-                                                            <img data-src="holder.js/50x50?bg=cccccc" class="img-circle" alt="50x50" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2250%22%20height%3D%2250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16b4341eb06%20text%20%7B%20fill%3A%23919191%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16b4341eb06%22%3E%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23cccccc%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%226.4765625%22%20y%3D%2229.55625%22%3E50x50%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" />
+                                                <div className="media">
+                                                    <div className="media-left">
+                                                        <div className="media-object">
+                                                            <img data-src="holder.js/50x50?bg=cccccc" className="img-circle" alt="50x50" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2250%22%20height%3D%2250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16b4341eb06%20text%20%7B%20fill%3A%23919191%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16b4341eb06%22%3E%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23cccccc%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%226.4765625%22%20y%3D%2229.55625%22%3E50x50%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" />
                                                         </div>
                                                     </div>
-                                                    <div class="media-body">
-                                                        <strong class="notification-title"><a href="#">Nikola Tesla</a> resolved <a href="#">T-14 - Awesome stuff</a></strong>
+                                                    <div className="media-body">
+                                                        <strong className="notification-title"><a href="#">Nikola Tesla</a> commented on <a href="#">Everything about black...</a></strong>
 
-                                                        <p class="notification-desc">Resolution: Fixed, Work log: 4h</p>
+                                                        <p className="notification-desc">Hey, can someone pick me up from the starting...</p>
 
-                                                        <div class="notification-meta">
-                                                            <small class="timestamp">27. 10. 2015, 08:00</small>
+                                                        <div className="notification-meta">
+                                                            <small className="timestamp">27. 10. 2015, 08:00</small>
                                                         </div>
 
                                                     </div>
@@ -180,17 +180,19 @@ export class Header extends React.Component {
                                             </DropdownItem>
                                             <DropdownItem divider />
                                             <DropdownItem>
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <div class="media-object">
-                                                            <img data-src="holder.js/50x50?bg=cccccc" class="img-circle" alt="50x50" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2250%22%20height%3D%2250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16b4341eb09%20text%20%7B%20fill%3A%23919191%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16b4341eb09%22%3E%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23cccccc%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%226.4765625%22%20y%3D%2229.55625%22%3E50x50%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" />
+                                                <div className="media">
+                                                    <div className="media-left">
+                                                        <div className="media-object">
+                                                            <img data-src="holder.js/50x50?bg=cccccc" className="img-circle" alt="50x50" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2250%22%20height%3D%2250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2050%2050%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16b4341eb09%20text%20%7B%20fill%3A%23919191%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16b4341eb09%22%3E%3Crect%20width%3D%2250%22%20height%3D%2250%22%20fill%3D%22%23cccccc%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%226.4765625%22%20y%3D%2229.55625%22%3E50x50%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" />
                                                         </div>
                                                     </div>
-                                                    <div class="media-body">
-                                                        <strong class="notification-title"><a href="#">James Bond</a> resolved <a href="#">B-007 - Desolve Spectre organization</a></strong>
+                                                    <div className="media-body">
+                                                        <strong className="notification-title"><a href="#">James Bond</a> commented on <a href="#">Summer fish jam in Rila.</a></strong>
 
-                                                        <div class="notification-meta">
-                                                            <small class="timestamp">1. 9. 2015, 08:00</small>
+                                                        <p className="notification-desc">Is there any chance for someone to lend me...</p>
+
+                                                        <div className="notification-meta">
+                                                            <small className="timestamp">1. 9. 2015, 08:00</small>
                                                         </div>
 
                                                     </div>
